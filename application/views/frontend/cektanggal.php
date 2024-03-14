@@ -14,6 +14,7 @@
 	<meta name="keywords" content="">
 	<!-- meta character set -->
 	<meta charset="UTF-8">
+	<!-- Log on to codeastro.com for more projects -->
 	<!-- Site Title -->
 	<title><?php echo $title ?></title>
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
@@ -30,62 +31,62 @@
 		<div class="overlay overlay-bg"></div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-6">
 					<!-- Default Card Example -->
 					<div class="card mb-5">
 						<div class="card-header">
-							<i class="fa fa-search"></i> Cari Tiket
+							<i class="fas fa-search"></i> Search Tickets
 						</div>
 						<div class="card-body">
-							<div class="alert alert-primary" role="alert">
-								<p><b>PENTING!!</b></p>
-								<P>Sebelum Membeli Tiket Harap Baca terlebih Dahulu <b><i data-toggle="modal"
-											data-target="#exampleModal">Cara Pemesanan</i></b></P>
+							<div class="alert alert-warning" role="alert">
+								<p><b>IMPORTANT!!</b></p>
+								<P>Before Buying Tickets, Please have a look>> <b><i data-toggle="modal"
+											data-target="#exampleModal">How to book?</i></b></P>
 							</div>
 							<form action="<?php echo base_url() ?>tiket/cekjadwal?>" method="get">
 								<div class="form-group">
-									<label for="exampleInputEmail1">Pilih Tanggal</label>
-									<input placeholder="Masukkan tanggal" type="text" class="form-control datepicker"
+									<label for="exampleInputEmail1">Select Date</label>
+									<input placeholder="Enter date" type="text" class="form-control datepicker"
 										name="tanggal" required="">
 								</div>
 								<div class="form-group">
-									<label for="exampleInputEmail1">Asal</label>
+									<label for="exampleInputEmail1">Origin</label>
 									<select name="asal" class="form-control js-example-basic-single" required>
-										<option value="" selected disabled="">Pilih Asal</option>
+										<option value="" selected disabled="">Choose Origin</option>
 										<?php foreach ($asal as $row ) { ?>
 										<option value="<?php echo $row['kd_tujuan'] ?>">
-											<?php echo strtoupper($row['kota_tujuan']).'['.$row['nama_terminal_tujuan'].']'; ?>
+											<?php echo strtoupper($row['kota_tujuan']) ?>
 											- <br><?php echo $row['terminal_tujuan']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="exampleInputEmail1">Tujuan</label>
+									<label for="exampleInputEmail1">Destination</label>
 									<select name="tujuan" class="form-control js-example-basic-single">
-										<option value="" selected disabled="">Pilih Tujuan</option>
+										<option value="" selected disabled="">Choose Destination</option>
 										<?php foreach ($tujuan as $row ) { ?>
 										<option value="<?php echo $row['kota_tujuan'] ?>">
 											<?php echo strtoupper($row['kota_tujuan']); ?></option>
 										<?php } ?>
 									</select>
 								</div>
-								<a href="<?php echo base_url() ?>tiket" class="btn btn-primary pull-left">Kembali </a>
-								<button type="submit" class="btn btn-primary pull-right">Cari </button>
+								<a href="<?php echo base_url() ?>tiket" class="btn btn-danger pull-left">Go Back </a>
+								<button type="submit" class="btn btn-primary pull-right">Search </button>
 							</form>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8">
+				<div class="col-lg-6">
 					<div class="card mb-10">
 						<div class="card-header">
-							<i class="fa fa-info"></i> Info Terminal
+							<i class="fas fa-info"></i> Terminal Info
 						</div>
 						<div class="card-body">
 							<table class="table table-bordered table-condensed" style="font-size:12px;" id="mydata">
 								<thead>
 									<tr>
-										<th style="text-align:center;width:50px;">KOTA</th>
-										<th>Lokasi Terminal</th>
+										<th style="text-align:center;">City</th>
+										<th>Terminal</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -104,6 +105,7 @@
 			</div>
 	</section>
 	<!-- End banner Area -->
+	<!-- Log on to codeastro.com for more projects -->
 	<!-- start footer Area -->
 	<?php $this->load->view('frontend/include/base_footer'); ?>
 	<!-- js -->
@@ -131,40 +133,38 @@
 
 </html>
 <!-- Modal -->
+<!-- Log on to codeastro.com for more projects -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Cara Pemesanan</h5>
+				<h5 class="modal-title" id="exampleModalLabel">How to book tickets?</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 				<div class="table-responsive">
-					<ol class="ordered-list" align="left"><span class="center_content2">
-							<li>Cari tiket kemudian klik pada tombol <b>Pesan</b>&nbsp;pada tiket yang ingin Anda pesan.
+					<ol class="ordered-list" align="justify"><span class="center_content2">
+					<li>Select date and select your origin and destination terminal/city in order to search for available schedules.
+							<li>Search for tickets then click on the <b>Select </b> button on the ticket you want to book.
 							</li>
-							<li style="font-weight: normal;">Tiket yang Anda pesan akan masuk ke dalam <span
-									style="font-weight: bold">Tiket Keranjang</span>.</li>
-							<li style="font-weight: normal;">Jika sudah selesai, klik tombol <span
-									style="font-weight: bold">Selesai Pesan</span>, maka akan tampil form untuk
-								pengisian data kustomer/pembeli.</li>
-							<li style="font-weight: normal;">Setelah data pembeli selesai diisikan, klik tombol <span
-									style="font-weight: bold">Proses</span>,
-								maka akan tampil data pembeli beserta tiketyang dipesannya (jika
-								diperlukan catat nomor ordernya). Dan juga ada total pembayaran serta
-								nomor rekening pembayaran.</li>
-							<li style="font-weight: normal;">Apabila telah melakukan pembayaran, bawalah bukti
-								pembayaran pada saat keberangkatan dan dilakukan penukaran satu jam sebelum
-								keberangkatan. </li>
+							<li>The system will redirect you to seat selection page where you have to <b>select any seats</b> [Max.4 seats at a time]</li>
+							<li>After selection of seats, click on the <b>Next </b>button to proceed. </li>
+							<li>Fill up your ticket details by providing customer's details such as Passenger's Name, Age and other required <b>Customer Identity</b>. With it, select any of the available bank [as a Payment Method] to book tickets.</li>
+							<li>After submitting the form, the bookings are done <b>[temporarily]</b>. The system will provide you with a <b>QR Code</b> and you've to make payments.</li>
+							<li>All the payment instructions are provided in the tickets page.</li>
+							<li>Following that, click on the <b>Payment Confirmation</b> button to submit your payment details with an attachment of <b>proof image</b>.</li>
+							<li>At last, you payment request will be sent for <b>verification</b>. </li>
+							<li>You will also receive an <b>E-Ticket</b> onces after the payment gets verified. </li>
+							<li>If you have made a payment, bring proof of payment at the time of departure and exchange it one hour before departure. </li>
 						</span></ol>
 					<w:worddocument></w:worddocument>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>

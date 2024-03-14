@@ -15,27 +15,28 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">Data Tujuan</h1>
+      <h1 class="h5 text-gray-800">Schedule Management</h1>
       <!-- DataTales Example -->
+      <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <a href="<?= base_url('backend/jadwal/tambahjadwal') ?>" class="btn btn-primary pull-right" >
-          Tambah Jadwal
+          <a href="<?= base_url('backend/jadwal/tambahjadwal') ?>" class="btn btn-success pull-right" >
+          Add Schedule
           </a>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+              <thead class="thead-dark">
                 <tr>
-                  <th>No</th>
-                  <th>Kode Jadwal</th>
-                  <th>Kota Asal</th>
-                  <th>Kota Tujuan</th>
-                  <th>Jam Berangkat</th>
-                  <th>Jam Sampai</th>
-                  <th>Harga</th>
-                  <th>Aksi</th>
+                  <th>#</th>
+                  <th>Code</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Departure</th>
+                  <th>Arrival</th>
+                  <th>Price</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -47,8 +48,9 @@
                   <td><?= strtoupper($row['wilayah_jadwal']); ?></td>
                   <td><?= date('H:i',strtotime($row['jam_berangkat_jadwal'])); ?></td>
                   <td><?= date('H:i',strtotime($row['jam_tiba_jadwal'])); ?></td>
-                  <td>Rp <?= number_format((float)($row['harga_jadwal']),0,",","."); ?>,-</td>
-                  <td><a href="<?= base_url('backend/jadwal/viewjadwal/'.$row['kd_jadwal']) ?>" class="btn btn-primary">VIEW</a></td>
+                  <!-- <td>$<?= number_format((float)($row['harga_jadwal']),0,",","."); ?>,-</td> -->
+                  <td>$<?= number_format((float)($row['harga_jadwal']),0,",","."); ?></td>
+                  <td><a href="<?= base_url('backend/jadwal/viewjadwal/'.$row['kd_jadwal']) ?>" class="btn btn-info">View</a></td>
                 </td>
               </tr>
               <?php } ?>
@@ -62,7 +64,7 @@
   <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
-<!-- Footer -->
+<!-- Footer --><!-- Log on to codeastro.com for more projects -->
 <?php $this->load->view('backend/include/base_footer'); ?>
 <!-- End of Footer -->
 <!-- js -->

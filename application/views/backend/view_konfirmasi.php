@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- Log on to codeastro.com for more projects -->
     <title><?= $title ?></title>
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -105,10 +106,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
+      <!-- Log on to codeastro.com for more projects -->
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">KODE Order [<?= $konfirmasi[0]['kd_order']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Booking Code [<?= $konfirmasi[0]['kd_order']; ?>]  </h6>
         </div>
         <div class="card-body">
           <form action="" method="post" enctype="multipart/form-data">
@@ -118,37 +120,37 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <?php foreach ($konfirmasi as $row ) { ?>
                 <div class="col-sm-6">
                   <div class="row form-group">
-                    <label for="nama" class="col-sm-4 control-label">Kode konfirmasi</label>
+                    <label for="nama" class="col-sm-4 control-label">Confirmation code</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="kd_konfirmasi" value="<?= $row['kd_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="nama" class="col-sm-4 control-label">Nama Bank</label>
+                    <label for="nama" class="col-sm-4 control-label">Bank name</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="nama" value="<?= $row['nama_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="nama" value="<?= $row['nama_bank_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Nama Pengirim</label>
+                    <label for="" class="col-sm-4 control-label">Sender's Name</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="a/n" value="<?= $row['nama_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">NomRek</label>
+                    <label for="" class="col-sm-4 control-label">Account Number</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="harga" value="<?php  echo $row['norek_konfirmasi']?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Total Pembayaran</label>
+                    <label for="" class="col-sm-4 control-label">Total Payment</label>
                     <div class="col-sm-8">
                       <input type="text" class="form-control" name="tgl_beli" value="<?= $row['total_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
-                    <label for="" class="col-sm-4 control-label">Bukti TF</label>
+                    <label for="" class="col-sm-4 control-label">Payment proof</label>
                     <div class="col-sm-8">
                       <img id="myImg" src="<?= base_url($row['photo_konfirmasi']) ?>" alt="<?= $row['nama_konfirmasi'] ?>" style="width:100%;max-width:300px">
                     </div>
@@ -157,7 +159,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <?php } ?>
             </div>
             <hr>
-                        <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
+                        <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
 
           </div>
         </form>
@@ -165,6 +167,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>
   </div>
   <!-- End of Main Content -->
+  <!-- Log on to codeastro.com for more projects -->
   <!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>

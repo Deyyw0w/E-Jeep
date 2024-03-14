@@ -17,10 +17,11 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
+      <!-- Log on to codeastro.com for more projects -->
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Tambah Jadwal</h6>
+          <h6 class="m-0 font-weight-bold text-primary">Add Schedule</h6>
         </div>
         <div class="card-body">
           <div class="card-body">
@@ -28,18 +29,18 @@
               <div class="col-sm-12">
                 <form action="<?= base_url()?>backend/jadwal/tambahjadwal" method="post">
                   <div class="form-group">
-                    <label class="">Asal</label>
+                    <label class="">Origin</label>
                     <select class="form-control" name="asal" required>
-                      <option value="" selected disabled="">-Pilih Asal-</option>
+                      <option value="" selected disabled="">-Choose Origin-</option>
                       <?php foreach ($tujuan as $row ) {?>
                       <option value="<?= $row['kd_tujuan'] ?>" ><?= strtoupper($row['kota_tujuan'])." - ".$row['terminal_tujuan']; ?></option>
                       <?php } ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label class="">Tujuan</label>
+                    <label class="">Destination</label>
                     <select class="form-control" name="tujuan" required>
-                      <option value="" selected disabled="">-Pilih Tujuan-</option>
+                      <option value="" selected disabled="">-Choose Destination-</option>
                       <?php foreach ($tujuan as $row ) {?>
                       <option value="<?= $row['kd_tujuan'] ?>" ><?= strtoupper($row['kota_tujuan'])." - ".$row['terminal_tujuan']; ?></option>
                       <?php } ?>
@@ -48,34 +49,34 @@
                   <div class="form-group">
                     <label  class="">Bus</label>
                     <select class="form-control" name="bus">
-                      <option value="" selected disabled="">-Pilih Bus-</option>
+                      <option value="" selected disabled="">-Choose Bus-</option>
                       <?php foreach ($bus as $row ) {?>
                       <option value="<?= $row['kd_bus'] ?>" ><?= strtoupper($row['nama_bus']); ?> -<?php if ($row['status_bus'] == '1') { ?>
-                        Online
+                        Active
                         <?php } else { ?>
-                        Offline
+                        InActive
                       <?php } ?>- </option>
                       <?php } ?>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label  class="">Jam Berangkat</label>
-                    <input type="text" class="form-control"  id="time" name="berangkat" required="" placeholder="Jam Berangkat">
+                    <label  class="">Departure Hours</label>
+                    <input type="text" class="form-control"  id="time" name="berangkat" required="" placeholder="Departure Hours">
                   </div>
                   <div class="form-group">
-                    <label  class="">Jam Tiba</label>
-                    <input type="text" class="form-control"  id="time2" name="tiba" required="" placeholder="Jam Tiba">
+                    <label  class="">Arrival Hour</label>
+                    <input type="text" class="form-control"  id="time2" name="tiba" required="" placeholder="Arrival Hour">
                   </div>
                   <div class="form-group">
-                    <label  class="">Harga Jadwal</label>
-                    <input type="number" class="form-control" name="harga" required="" placeholder="Harga">
+                    <label  class="">Schedule Price</label>
+                    <input type="number" class="form-control" name="harga" required="" placeholder="Price">
                     <?= form_error('name'),'<small class="text-danger pl-3">','</small>'; ?>
                   </div>
                 </div>
               </div>
               <hr>
-              <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
-              <input  type="submit" class="btn btn-primary pull-rigth" value="Tambah Jadwal">
+              <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+              <input  type="submit" class="btn btn-success pull-rigth" value="Add Schedule">
             </form>
           </div>
         </div>
@@ -83,6 +84,7 @@
     </div>
     <!-- End of Main Content -->
     <!-- The Modal -->
+    <!-- Log on to codeastro.com for more projects -->
     <!-- Footer -->
     <?php $this->load->view('backend/include/base_footer'); ?>
     <!-- End of Footer -->

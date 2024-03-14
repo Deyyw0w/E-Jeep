@@ -41,7 +41,7 @@ class Home extends CI_Controller {
         if ($this->form_validation->run() == FALSE || !isset($response['success']) || $response['success'] <> true) {
             $this->index();
         } else {
-            echo 'Berhasil';
+            echo 'Succeeded';
         }
 	}
 }

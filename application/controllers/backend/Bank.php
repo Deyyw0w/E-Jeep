@@ -36,7 +36,8 @@ class Bank extends CI_Controller {
 		if (!$this->upload->do_upload('userfile')){
 			$error = array('error' => $this->upload->display_errors());
 			die(print_r($error));
-			$this->session->set_flashdata('message', 'swal("Gagal", "Cek Kembali Inputan Anda", "error");');
+			$this->session->set_flashdata('message', 'swal("Fail", "Check Back Your Input
+			", "error");');
 			redirect('backend/bank');
 		}else{
 			$upload_data = $this->upload->data();
@@ -51,7 +52,8 @@ class Bank extends CI_Controller {
 			];
 			
 			$this->db->insert('tbl_bank', $data);
-			$this->session->set_flashdata('message', 'swal("Berhasil", "Data Bank Di Simpan", "success");');
+			$this->session->set_flashdata('message', 'swal("Succeeded", "Bank Data Saved
+			", "success");');
 			redirect('backend/bank');
 		}
 	}

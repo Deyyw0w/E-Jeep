@@ -11,28 +11,28 @@
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
   <body id="page-top">
-    <!-- navbar -->
+    <!-- navbar --><!-- Log on to codeastro.com for more projects -->
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">Data Tujuan</h1>
+      <h1 class="h5 text-gray-800">Destination/Terminal Management</h1>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#ModalTujuan">
-          Tambah Tujuan
+          <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#ModalTujuan">
+          Add Destination
           </button>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-dark">
                 <tr align="center">
-                  <th>No</th>
-                  <th>Kode</th>
-                  <th>Kota Tujuan</th>
-                  <th>Info Terminal</th>
-                  <th>Aksi</th>
+                  <th>#</th>
+                  <th>Code</th>
+                  <th>Destination City</th>
+                  <th>Terminal Info</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -42,7 +42,7 @@
                   <td><?= $row['kd_tujuan']; ?></td>
                   <td><?= strtoupper($row['kota_tujuan']); ?></td>
                   <td><?=  substr($row['terminal_tujuan'], 0, 15); ?></td>
-                  <td align="center"><a href="<?= base_url('backend/rute/viewrute/'.$row['kd_tujuan']) ?>" class="btn btn-primary">VIEW</a></td>
+                  <td align="center"><a href="<?= base_url('backend/rute/viewrute/'.$row['kd_tujuan']) ?>" class="btn btn-info">View</a></td>
                 </tr>
                 <?php } ?>
               </tbody>
@@ -51,7 +51,7 @@
         </div>
       </div>
       <!-- /.container-fluid -->
-    </div>
+    </div><!-- Log on to codeastro.com for more projects -->
     <!-- /.container-fluid -->
   </div>
   <!-- End of Main Content -->
@@ -71,16 +71,16 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Tambah Tujuan</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Add Destination</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <form action="<?= base_url() ?>backend/home/tambahtujuan" method="post" >
+      <form action="<?= base_url() ?>backend/rute/tambahtujuan" method="post" >
         <div class="form-group">
           <div class="form-label-group">
-            <input type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Tujuan" required="required" autofocus="autofocus">
+            <input type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Destination" required="required" autofocus="autofocus">
           </div>
         </div>
         <div class="form-group">
@@ -89,8 +89,8 @@
           </div>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary">Tambah</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button class="btn btn-success">Add</button>
       </div>
       </form>
     </div>

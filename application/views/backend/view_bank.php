@@ -132,31 +132,32 @@
 	<!-- Begin Page Content -->
 	<div class="container-fluid">
 		<!-- Page Heading -->
+		<!-- Log on to codeastro.com for more projects -->
 		<!-- Basic Card Example -->
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">Kode BANK [<?= $bank['kd_bank']; ?>] </h6>
+				<h6 class="m-0 font-weight-bold text-primary">Bank code [<?= $bank['kd_bank']; ?>] </h6>
 			</div>
 			<div class="card-body">
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-6">
-							<p>Nama Bank : <b> <?= $bank['nama_bank']?>]</b></p>
-							<p>Nama Nasabah: <b><?= strtoupper($bank['nasabah_bank']) ?></b></p>
-							<p>Nomor Rekening : <b><?= $bank['nomrek_bank']; ?> Kursi</b></p>
-							<p>Photo Bank : <img id="myImg" src="<?= base_url($bank['photo_bank']) ?>" alt="<?= $bank['nama_bank'] ?>"
+							<p>Bank Name : <b> <?= $bank['nama_bank']?></b></p>
+							<p>Customer Name: <b><?= strtoupper($bank['nasabah_bank']) ?></b></p>
+							<p>Account number : <b><?= $bank['nomrek_bank']; ?></b></p>
+							<p>Bank Logo : <img id="myImg" src="<?= base_url($bank['photo_bank']) ?>" alt="<?= $bank['nama_bank'] ?>"
 									style="width:100%;max-width:300px"></p>
 						</div>
 						<div class="col-sm-6">
 						</div>
 					</div>
 					<hr>
-					<a class="btn btn-default" href="<?= base_url('backend/bank')?>"> Kembali</a>
-					<button data-toggle="modal" data-target="#edit" class="btn btn-primary float-right">Edit</button>
+					<a class="btn btn-danger" href="<?= base_url('backend/bank')?>"> Go Back</a>
+					<!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info float-right">Edit</button> -->
 				</div>
 			</div>
 		</div>
-	</div>
+	</div><!-- Log on to codeastro.com for more projects -->
 	<!-- End of Main Content -->
 	<!-- The Modal -->
 	<div id="myModal" class="modal">

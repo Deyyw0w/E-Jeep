@@ -37,7 +37,7 @@ class Rute extends CI_Controller {
 			 );
 		// die(print_r($data));
 		$this->db->insert('tbl_tujuan', $data);
-		$this->session->set_flashdata('message', 'swal("Data Berhasil Di Tambah");');
+		$this->session->set_flashdata('message', 'swal("Succeeded Data Added");');
 		redirect('backend/home/tujuan');
 	}
 }

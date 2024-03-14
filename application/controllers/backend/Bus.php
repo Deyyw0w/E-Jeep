@@ -28,7 +28,8 @@ class Bus extends CI_Controller {
 			'status_bus'			=> '1'
 			 );
 		$this->db->insert('tbl_bus', $data);
-		$this->session->set_flashdata('message', 'swal("Berhasil", "Data Bus Di Simpan", "success");');
+		$this->session->set_flashdata('message', 'swal("Succeeded", "Bus Data Saved
+		", "success");');
 		redirect('backend/bus');
 	}
 

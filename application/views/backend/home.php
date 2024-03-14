@@ -24,7 +24,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">DashBoard</h1>
+          <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
           <!-- Content Row -->
           <div class="row">
 
@@ -51,7 +51,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?= base_url('backend/tiket') ?>">Total Tiket terrjual</a></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?= base_url('backend/tiket') ?>">Total Tickets Sold</a></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $tiket[0]['count(kd_tiket)']; ?></div>
                     </div>
                     <div class="col-auto">
@@ -68,7 +68,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?= base_url('backend/konfirmasi') ?>">List Konfirmasi</a></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?= base_url('backend/konfirmasi') ?>">Confirmation List
+</a></div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
                           <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $konfirmasi[0]['count(kd_konfirmasi)']; ?></div>
@@ -92,7 +93,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pengajuan Refund Tiket</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Ticket Refund Submission
+</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                     </div>
                     <div class="col-auto">

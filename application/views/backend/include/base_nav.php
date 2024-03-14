@@ -20,41 +20,41 @@
         <a class="nav-link" href="<?= base_url() ?>backend/home">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard </span></a>
+          <a class="nav-link" href="<?= base_url() ?>backend/bus">
+            <i class="fas fa fa-bus"></i>
+            <span>Manage Bus</span></a>
+            <a class="nav-link" href="<?= base_url() ?>backend/rute">
+              <i class="fas fa fa-compass"></i>
+              <span>Manage Terminal</span></a>
+              <a class="nav-link" href="<?= base_url() ?>backend/jadwal">
+                <i class="fas fa fa-clipboard-list"></i>
+                <span>Manage Schedule</span></a>
         <a class="nav-link" href="<?= base_url() ?>backend/order">
-          <i class="fas fa-list-alt"></i>
-          <span>List Order</span></a>
+          <i class="fas fa-bookmark"></i>
+          <span>List Bookings</span></a>
         <a class="nav-link" href="<?= base_url() ?>backend/tiket">
-          <i class="fas fa-qrcode"></i>
-          <span>List Tiket</span></a>
+          <i class="fas fa-ticket-alt"></i>
+          <span>Tickets</span></a>
         <a class="nav-link" href="<?= base_url() ?>backend/konfirmasi">
-          <i class="fa fa-mouse-pointer"></i>
-          <span>List Konfirmasi</span></a>
-        <a class="nav-link" href="<?= base_url() ?>backend/jadwal">
-          <i class="fas fa fa-clipboard-list"></i>
-          <span>Jadwal</span></a>
-        <a class="nav-link" href="<?= base_url() ?>backend/rute">
-          <i class="fas fa fa-compass"></i>
-          <span>Tujuan</span></a>
-        <a class="nav-link" href="<?= base_url() ?>backend/bus">
-          <i class="fas fa fa-bus"></i>
-          <span>Bus</span></a>
+          <i class="fa fa-dollar-sign"></i>
+          <span>Payments List</span></a>
         <?php if ($this->session->userdata('level') == '1') { ?>
            <a class="nav-link" href="<?= base_url() ?>backend/bank">
-          <i class="fas fa fa-link"></i>
-          <span>Link Bank</span></a>
+          <i class="fas fa fa-piggy-bank"></i>
+          <span>Bank List</span></a>
         <a class="nav-link" href="<?= base_url() ?>backend/laporan">
           <i class="fa fa fa-file"></i>
-          <span>Laporan</span></a>
+          <span>Report</span></a>
              <!-- Nav Item - Pages Collapse Menu -->
           <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
               <i class="fas fa-fw fa-users"></i>
-              <span>Management User</span>
+              <span>User Management</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('backend/pelanggan') ?>">List Pelanggan</a>
-                <a class="collapse-item" href="<?= base_url() ?>backend/admin">List Admin</a>
+                <a class="collapse-item" href="<?= base_url('backend/pelanggan') ?>">Customer List</a>
+                <a class="collapse-item" href="<?= base_url() ?>backend/admin">Administrator</a>
               </div>
             </div>
           </li>
@@ -88,7 +88,8 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?= base_url('backend/order/vieworder') ?>" method="GET">
             <div class="input-group">
-              <input type="text" name="order" class="form-control bg-light border-0 small" placeholder="Cari Order" aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" name="order" class="form-control bg-light border-0 small" placeholder="Search Order
+" aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" >
                   <i class="fas fa-search fa-sm"></i>

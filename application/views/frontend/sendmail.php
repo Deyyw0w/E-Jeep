@@ -11,7 +11,7 @@
 			<tr class="header" style="background-color:#484B51;">
 				<td style="padding-right:10px;" align="left">
 					<a href="<?= base_url() ?>" target="_blank">
-						<h4>Tiket XTRANS</h4>
+						<h4>EJEEP TICKET</h4>
 					</a>
 				</td>
 				<td style="padding-right:10px;" align="right">
@@ -23,15 +23,15 @@
 			<tr>
 				<td colspan="2">
 					<p style="text-align: justify; padding: 10px;">
-						Dear Customer Tiket XTRANS,<br>
-						Terima kasih telah menggunakan Tiket XTRANS.
+						Dear Customer,<br>
+						Thank you for using BTBS.
 					</p>
 					<p style="text-align: justify; padding: 10px;">
-						Berikut Ringkasan Pembelian Anda:
+					Here's a Summary of Your Purchases:
 						<table width="100%" style="font-size: 14px; margin: 10px;">
 								<tr>
 								<td>
-									Manual Transfer Nomor Rekening
+								Account Number Transfer Manual
 									</td><td>:</td>
 									<td>
 										<strong><?= $sendmail['nomrek_bank']; ?></strong>
@@ -39,7 +39,7 @@
 								</tr>
 								<tr>
 								<td>
-									Atas Nama
+								On behalf of
 									</td><td>:</td>
 									<td>
 										<strong><?= $sendmail['nasabah_bank']; ?></strong>
@@ -47,7 +47,7 @@
 								</tr>
 								<tr>
 									<td>
-										Bank Penerima
+									Recipient Bank
 									</td>
 									<td>:</td>
 									<td>
@@ -56,17 +56,17 @@
 								</tr>
 								<tr>
 									<td>
-										Nominal yang dibayarkan
+									Amount paid
 									</td>
 									<td>:</td>
 									<td>
 										<?php $total = $count * $sendmail['harga_jadwal'] ?>
-										<strong>Rp <?= number_format((float)($total),0,",","."); ?></strong>
+										<strong>$ <?= number_format((float)($total),0,",","."); ?></strong>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										Nomor Order
+									Booking Number
 									</td>
 									<td>:</td>
 									<td>
@@ -75,18 +75,18 @@
 								</tr>
 								<tr>
 									<td>
-										Deskprisi Pembelian
+									Purchase Description
 									</td>
 									<td>:</td>
 									<td>
-										<strong>Kode Jadwal <?= $sendmail['kd_jadwal'] ?></strong><br>
-										<strong>Berangkat <?= hari_indo(date('N',strtotime($sendmail['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$sendmail['tgl_berangkat_order'].''))).', '.date('H:i',strtotime($sendmail['jam_berangkat_jadwal'])); ?></strong><br>
-										<strong><?= $count; ?> Kursi</strong>
+										<strong>Schedule Code <?= $sendmail['kd_jadwal'] ?></strong><br>
+										<strong>Depart <?= hari_indo(date('N',strtotime($sendmail['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$sendmail['tgl_berangkat_order'].''))).', '.date('H:i',strtotime($sendmail['jam_berangkat_jadwal'])); ?></strong><br>
+										<strong><?= $count; ?> Seat</strong>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										Tanggal Beli
+									Purchase Date
 									</td>
 									<td>:</td>
 									<td>
@@ -95,7 +95,7 @@
 								</tr>
 								<tr>
 									<td>
-										Berlaku hingga
+									Valid until
 									</td>
 									<td>:</td>
 									<td>
@@ -112,7 +112,7 @@
 									<tr>
 										<td>
 											<div class="col-md-12 col-xs-12">
-												<h4>Cara Transfer Melalui</h4>
+												<h4>How to Transfer Via</h4>
 												<div class="hr hr8 hr-double hr-dotted"></div>
 												<div class="row">
 													<div class="col-md-4">
@@ -120,15 +120,15 @@
 															<center><h4>ATM</h4></center>
 															<div class="hr hr8 hr-double hr-dotted"></div>
 															<ol style="padding:0;">
-																<li>Panduan Bayar</li>
-																<li>Pilih Menu <span class="label">Transaksi Lainnya</span></li>
-																<li>Pilih <span class="label">Transfer</span></li>
-																<li>Pilih <span class="label">Ke rekening <?= $sendmail['nama_bank'];; ?> </span></li>
-																<li>Input Nomor Rekening <span class="label"><?= $sendmail['nomrek_bank']; ?></span></li>
-																<li>Pilih <span class="label">Benar</span></li>
-																<li>Pilih <span class="label">Ya</span></li>
-																<li>Ambil bukti bayar anda</li>
-																<li>Selesai</li>
+																<li>Pay Guide</li>
+																<li>Select Menu <span class="label">Other Transactions</span></li>
+																<li>Select <span class="label">Transfer</span></li>
+																<li>Select <span class="label">To account <?= $sendmail['nama_bank'];; ?> </span></li>
+																<li>Enter Account Number <span class="label"><?= $sendmail['nomrek_bank']; ?></span></li>
+																<li>Select <span class="label">Right</span></li>
+																<li>Select <span class="label">Yes</span></li>
+																<li>Take your proof of payment</li>
+																<li>Finished</li>
 															</ol>
 														</div>
 													</div>
@@ -138,16 +138,16 @@
 															<div class="hr hr8 hr-double hr-dotted"></div>
 															<ol style="padding:0;">
 																<li>Login Mobile Banking</li>
-																<li>Pilih <span class="label">m-Transfer</span></li>
-																<li>Pilih <span class="label">BCA Rekening</span></li>
-																<li>Input Nomor Rekening <span class="label"><?= $sendmail['nomrek_bank'] ?></span></li>
-																<li>Klik <span class="label">Send</span></li>
-																<li>Informasi VA akan ditampilkan</li>
-																<li>Klik <span class="label">OK</span></li>
+																<li>Select <span class="label">m-Transfer</span></li>
+																<li>Select <span class="label">BCA Account</span></li>
+																<li>Enter Account Number<span class="label"><?= $sendmail['nomrek_bank'] ?></span></li>
+																<li>Click <span class="label">Send</span></li>
+																<li>VA information will be displayed</li>
+																<li>Click <span class="label">OK</span></li>
 																<li>Input <span class="label">PIN</span></li>
 																<li>Mobile Banking</li>
-																<li>Bukti bayar ditampilkan</li>
-																<li>Selesai</li>
+																<li>Proof of payment is displayed</li>
+																<li>Finished</li>
 															</ol>
 														</div>
 													</div>
@@ -156,15 +156,15 @@
 															<center><h4>INTERNET BANKING</h4></center>
 															<div class="hr hr8 hr-double hr-dotted"></div>
 															<ol style="padding:0;">
-																<li>Pilih <span class="label">Transaksi Dana</span></li>
-																<li>Pilih <span class="label">Transfer Ke BCA Rekening</span></li>
-																<li>Input Nomor Rekening <span class="label"><?= $sendmail['nomrek_bank'] ?></span></li>
+																<li>Select <span class="label">Fund Transactions</span></li>
+																<li>Select <span class="label">Transfer to BCA Account</span></li>
+																<li>Enter Account Number <span class="label"><?= $sendmail['nomrek_bank'] ?></span></li>
 																<li></li>
-																<li>Klik <span class="label">Lanjutkan</span></li>
-																<li>Input Respon <span class="label">KeyBCA Appli 1</span></li>
-																<li>Klik <span class="label">Kirim</span></li>
-																<li>Bukti bayar ditampilkan</li>
-																<li>Selesai</li>
+																<li>Click <span class="label">Continue</span></li>
+																<li>Input Response <span class="label">KeyBCA Appli 1</span></li>
+																<li>Click <span class="label">Send</span></li>
+																<li>Proof of payment is displayed</li>
+																<li>Finished</li>
 															</ol>
 														</div>
 													</div>
@@ -179,8 +179,8 @@
 								<td colspan="2">
 									<p style="padding:10px;">
 										<br>
-										Hormat Kami,<br>
-										<span style="color:#fd7521;"><strong>Tiket XTRANS</strong></span>
+										Best regards,<br>
+										<span style="color:#fd7521;"><strong>Bus Ticket Booking System</strong></span>
 										<br>
 										<br>
 									</p>
@@ -191,7 +191,7 @@
 							</tr>
 							<tr class="footer" style="font-size: 10px; background-color: #484B51;color:#ffffff;">
 								<td style="padding-left:10px; padding-right:10px;">
-									<?= date("Y"); ?> &copy; Tiket XTRANS
+									<?= date("Y"); ?> &copy; BTBS
 								</td>
 								<td align="right" style="padding-left:10px; padding-right:10px;">
 									<img height="30" src="https://cdn4.iconfinder.com/data/icons/dot/256/bus.png" border="0">

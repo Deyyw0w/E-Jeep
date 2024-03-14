@@ -16,10 +16,11 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
+      <!-- Log on to codeastro.com for more projects -->
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Tiket [<?= $tiket['kd_tiket']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Ticket Code[<?= $tiket['kd_tiket']; ?>]  </h6>
         </div>
         <div class="card-body">
           <form action="" method="post" enctype="multipart/form-data">
@@ -27,16 +28,16 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Kode Order     : <b><?= $tiket['kd_order']; ?></b></p>
-                  <p>Nama Penumpang : <b><?= $tiket['nama_tiket']; ?></b></p>
-                  <p>Umur Penumpang : <b><?= $tiket['umur_tiket']; ?></b></p>
-                  <p>Nomor Kursi    : <b><?= $tiket['kursi_tiket'] ?></b></p>
+                  <p>Booking Code    : <b><?= $tiket['kd_order']; ?></b></p>
+                  <p>Passenger's Name : <b><?= $tiket['nama_tiket']; ?></b></p>
+                  <p>Passenger's Age : <b><?= $tiket['umur_tiket']; ?></b></p>
+                  <p>Seat Number   : <b><?= $tiket['kursi_tiket'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>
             </div>
             <hr>
-                        <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
+                        <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
 
           </div>
         </form>
@@ -44,6 +45,7 @@
     </div>
   </div></div>
   <!-- End of Main Content -->
+  <!-- Log on to codeastro.com for more projects -->
   <!-- Footer -->
   <?php $this->load->view('backend/include/base_footer'); ?>
   <!-- End of Footer -->

@@ -15,25 +15,28 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">List Order</h1>
+      
       <!-- DataTales Example -->
+      <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
+        <h1 class="h5 text-gray-800">Booking List</h1>
         </div>
         <div class="card-body">
+        
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-dark">
                 <tr>
-                  <th>No</th>
-                  <th>Kode Order</th>
-                  <th>Kode Jadwal</th>
-                  <th>Tanggal Berangkat</th>
-                  <th>Nama Pemesan</th>
-                  <th>Tanggal Beli</th>
-                  <th>Jumlah Tiket</th>
+                  <th>#</th>
+                  <th>Code</th>
+                  <th>Schedule Code</th>
+                  <th>Departure Date</th>
+                  <th>Customer</th>
+                  <th>Purchase Date</th>
+                  <th>Ticket Qty.</th>
                   <th>Status</th>
-                  <th>Aksi</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,11 +51,13 @@
                     <?php $sqlcek = $this->db->query("SELECT * FROM tbl_order WHERE kd_order LIKE '".$row['kd_order']."'")->result_array(); ?>
                     <td><?= count($sqlcek); ?></td>
                     <?php if ($row['status_order'] == '1') { ?>
-                          <td class="btn-danger"> Belum Bayar</td> 
+                          <td class="btn-danger"> Unpaid</td> 
                           <?php } elseif($row['status_order'] == '2') { ?>
-                          <td class="btn-success"> Sudah Bayar</td>
-                        <?php } ?>
-                    <td><a href="<?= base_url('backend/order/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-primary">View</a></td>
+                          <td class="btn-success"> Paid</td>
+                        <?php } else { ?>
+                          <td class="btn-warning"> Cancelled</td>
+                          <?php } ?>
+                    <td><a href="<?= base_url('backend/order/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-info">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>
@@ -70,7 +75,7 @@
 <!-- End of Footer -->
 </div>
 <!-- End of Content Wrapper -->
-</div>
+</div><!-- Log on to codeastro.com for more projects -->
 <!-- End of Page Wrapper -->
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">

@@ -15,26 +15,27 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">Data Bus</h1>
+      <h1 class="h5 text-gray-800">Bus Management</h1>
       <!-- DataTales Example -->
+      <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#ModalTujuan">
-          Tambah Bus
+          <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#ModalTujuan">
+          Add Bus
           </button>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-dark">
                 <tr>
-                  <th>No</th>
-                  <th>Kode Bus</th>
-                  <th>Nama Bus</th>
-                  <th>Plat Bus</th>
-                  <th>Kapasitas Kursi</th>
+                  <th>#</th>
+                  <th>Bus Code</th>
+                  <th>Bus Name</th>
+                  <th>Bus Plate</th>
+                  <th>Seat Capacity</th>
                   <th>Status</th>
-                  <th>Aksi</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -46,11 +47,11 @@
                   <td><?= strtoupper($row['plat_bus']); ?></td>
                   <td><?= $row['kapasitas_bus'] ?></td>
                   <?php if ($row['status_bus'] == '1') { ?>
-                    <td class="btn-success"> Online</td> 
+                    <td class="btn-success"> Active</td> 
                     <?php } else { ?>
-                    <td class="btn-danger">Offline</td>
+                    <td class="btn-danger">InActive</td>
                   <?php } ?>
-                  <td align="center"><a href="<?= base_url('backend/bus/viewbus/'.$row['kd_bus'])?>" class="btn btn btn-primary">View</a></a>
+                  <td align="center"><a href="<?= base_url('backend/bus/viewbus/'.$row['kd_bus'])?>" class="btn btn btn-info">View</a></a>
                 </td>
               </tr>
               <?php } ?>
@@ -64,7 +65,7 @@
   <!-- /.container-fluid -->
 </div>
 <!-- End of Main Content -->
-<!-- Footer -->
+<!-- Footer --><!-- Log on to codeastro.com for more projects -->
 <?php $this->load->view('backend/include/base_footer'); ?>
 <!-- End of Footer -->
 <!-- Modal -->
@@ -72,7 +73,7 @@
 <div class="modal-dialog" role="document">
 <div class="modal-content">
   <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Tambah Bus</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Add Bus</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
@@ -80,20 +81,20 @@
   <div class="modal-body">
     <form action="<?= base_url()?>backend/bus/tambahbus" method="post">
       <div class="form-group">
-        <label for="platbus" class="">Nama BUS</label>
-        <input type="text" class="form-control" name="nama_bus" placeholder="Plat Bus">
+        <label for="platbus" class="">Bus Name</label>
+        <input type="text" class="form-control" name="nama_bus" placeholder="Bus Name">
       </div>
       <div class="form-group">
-        <label for="platbus" class="">Plat BUS</label>
-        <input type="text" class="form-control" name="plat_bus" placeholder="Plat Bus">
+        <label for="platbus" class="">Bus Number Plate</label>
+        <input type="text" class="form-control" name="plat_bus" placeholder="Bus Plate">
       </div>
       <div class="form-group">
-        <label for="seat" class="">Jumlah Kursi</label>
-        <input type="number" class="form-control" id="seat" name="seat" placeholder="Jumlah Kursi">
+        <label for="seat" class="">Number of Seats (Max.23)</label>
+        <input type="number" class="form-control" id="seat" name="seat" placeholder="[Maximum 23]">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary">Simpan</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button class="btn btn-success">Save</button>
       </div>
     </form>
   </div>

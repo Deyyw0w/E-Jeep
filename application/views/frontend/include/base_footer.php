@@ -1,11 +1,11 @@
-			<footer class="footer-area section-gap">
+<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-3  col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h4 class="text-white">Tiket BUS</h4>
+								<h4 class="text-white">Bus Ticket Booking</h4>
 								<p>
-									Tiket BUS adalah jasa pemesanan tiket bis secara online terbesar di dunia. Telah dipercaya lebih dari 8 juta pelanggan secara global. Tiket Bus menawarkan pemesanan tiket bis melalui website.
+								BUS Tickets is the largest online bus ticket booking service in the world. Trusted by more than 8 million customers globally. Bus Tickets offers booking bus tickets through the website.
 								</p>
 							</div>
 						</div>
@@ -16,8 +16,8 @@
 
 								</p>
 								<p class="number">
-									012-6532-568-9746 <br>
-									012-6532-569-9748
+									012-0101-111-1001 <br>
+									012-1010-000-0110
 								</p>
 							</div>
 						</div>						
@@ -45,21 +45,22 @@
 					</div>
 					<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <p class="footer-text m-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="fa fa-heart-o" aria-hidden="true"></i> </p>
+            <p class="footer-text m-0"><span>&copy; <?= date('Y') ?> Bus Ticket Booking System - Developed by Bahyu Sanciko </span> </p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						<div class="footer-social d-flex align-items-center">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
-						</div>
+			<!-- Log on to codeastro.com for more projects -->
+						<!-- <div class="footer-social d-flex align-items-center">
+							<a href="#"><i class="fas fa-facebook"></i></a>
+							<a href="#"><i class="fas fa-twitter"></i></a>
+							<a href="#"><i class="fas fa-dribbble"></i></a>
+							<a href="#"><i class="fas fa-behance"></i></a>
+						</div> -->
 					</div>
 				</div>
 			</footer>
 			<div class="preloader">
 			<div class="loading">
-				<img src="<?php echo base_url('assets/frontend/img/preloader.gif') ?>" width="80">
-				<p>Harap Tunggu</p>
+				<img src="<?php echo base_url('assets/frontend/img/preloader.gif') ?>" width="100">
+				<p>Please Wait...</p>
 			</div>
 		</div>	
 			<!-- End footer Area -->

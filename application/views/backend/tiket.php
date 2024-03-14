@@ -14,23 +14,25 @@
     <!-- navbar -->
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
+    <!-- Log on to codeastro.com for more projects -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">List Tiket</h1>
+      
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
+        <h1 class="h5 text-gray-800">Sold Tickets</h1>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-dark">
                 <tr>
-                  <th>No</th>
-                  <th>Kode Tiket</th>
-                  <th>Nama </th>
-                  <th>Kursi </th>
-                  <th>Asal Beli</th>
-                  <th>Aksi</th>
+                  <th>#</th>
+                  <th>Ticket Code</th>
+                  <th>Name </th>
+                  <th>Seat </th>
+                  <th>Origin Buy</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,7 +43,7 @@
                     <td><?= $row['nama_tiket']; ?></td>
                     <td><?= $row['kursi_tiket']; ?></td>
                     <td><?= strtoupper($row['asal_beli_tiket']);  ?></td>
-                    <td><a href="<?= base_url('backend/tiket/viewtiket/'.$row['kd_tiket']) ?>" class="btn btn btn-primary">View</a></td>
+                    <td><a href="<?= base_url('backend/tiket/viewtiket/'.$row['kd_tiket']) ?>" class="btn btn btn-info">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>
@@ -57,7 +59,7 @@
 <!-- Footer -->
 <?php $this->load->view('backend/include/base_footer'); ?>
 <!-- End of Footer -->
-</div>
+</div><!-- Log on to codeastro.com for more projects -->
 <!-- End of Content Wrapper -->
 </div>
 <!-- End of Page Wrapper -->

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>E-Tiket(<?php echo $cetak[0]['kd_order'];?>)</title>
+<!-- Log on to codeastro.com for more projects -->
+<title>E-Ticket(<?php echo $cetak[0]['kd_order'];?>)</title>
 
 <style type="text/css">
     * {
@@ -87,16 +88,16 @@
         <td align="right">
             <h1>E-TICKET</h1>
             <pre>
-                <b><span style='font-size:15px'>Detail Pesanan </span></b>
+                <b><span style='font-size:15px'>Ticket Details </span></b>
                 </br>
-                Kode Order : <?php echo $cetak[0]['kd_order'];?></br>
-                Kode Jadwal : <?php echo $cetak[0]['kd_jadwal'];?></br>
-                Beli : <?php echo $cetak[0]['tgl_beli_order'];?></br>
-                Nama Pemesan : <?php echo $cetak[0]['nama_order'];?></br>
-                Jadwal : <?php echo hari_indo(date('N',strtotime($cetak[0]['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tgl_berangkat_order'].'')));?><br>
-                Jam Berangkat : <?php echo date('H:i',strtotime($cetak[0]['jam_berangkat_jadwal'])).' Sampai '.date('H:i',strtotime($cetak[0]['jam_tiba_jadwal'])) ?>
-                Berangkat Dari : <?php echo $asal['nama_terminal_tujuan'].'-'.strtoupper($asal['kota_tujuan']);?></br>
-                Tujuan Ke : <?php echo $cetak[0]['nama_terminal_tujuan'].' - '.strtoupper($cetak[0]['kota_tujuan']); ?>
+                Booking Code : <?php echo $cetak[0]['kd_order'];?></br>
+                Schedule Code : <?php echo $cetak[0]['kd_jadwal'];?></br>
+                Date : <?php echo $cetak[0]['tgl_beli_order'];?></br>
+                Customer : <?php echo $cetak[0]['nama_order'];?></br>
+                Schedule : <?php echo hari_indo(date('N',strtotime($cetak[0]['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$cetak[0]['tgl_berangkat_order'].'')));?><br>
+                Departure DateTime : <?php echo date('H:i',strtotime($cetak[0]['jam_berangkat_jadwal'])).' To '.date('H:i',strtotime($cetak[0]['jam_tiba_jadwal'])) ?>
+                Departing from : <?php echo strtoupper($asal['kota_tujuan']);?></br>
+                Destination to : <?php echo strtoupper($cetak[0]['kota_tujuan']); ?>
             </pre>
         </td>
     </tr>
@@ -105,11 +106,11 @@
   <table width="100%">
     <thead style="background-color: lightgray;">
       <tr>
-        <th>Nomor Tiket</th>
-        <th>Nama Penumpang</th>
-        <th>Umur </th>
-        <th>Nomor Kursi</th>
-        <th>Harga</th>
+        <th>Ticket No.</th>
+        <th>Passenger</th>
+        <th>Age </th>
+        <th>Seat</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tbody>
@@ -117,73 +118,43 @@
         <tr>
            <td scope="row"><?php echo $row['kd_tiket']; ?></td>
            <td align="left"><?php echo $row['nama_kursi_order']; ?></td>
-           <td align="center"><?php echo $row['umur_kursi_order']; ?>Tahun</td>
+           <td align="center"><?php echo $row['umur_kursi_order']; ?> Years</td>
             <td align="center"><?php echo $row['no_kursi_order']; ?> </td>
-           <td align="left"><?php echo 'Rp '.number_format(($row['harga_jadwal'])).',-'; ?></td>
+           <td align="left"><?php echo '$'.number_format(($row['harga_jadwal'])); ?></td>
         <tr>
         <?php } ?>
     </tbody>
     <tfoot>
         <tr>
             <td colspan="3"></td>
-            <td align="right">Total Rp</td>
-            <td align="right" class="gray"><?php $total = count($cetak) * $cetak[0]['harga_jadwal']; echo 'Rp '.number_format(($total)).',-';?></td>
+            <td align="right">Total</td>
+            <td align="right" class="gray"><?php $total = count($cetak) * $cetak[0]['harga_jadwal']; echo '$'.number_format(($total));?></td>
         </tr>
     </tfoot>
   </table>
   <div id="container">
-    <h1>Syarat dan ketentuan</h1>
+    <h1>Terms and Conditions</h1>
 
     <div id="body">
         <ol type="1">
-          <li>Tiket XTRANS * HANYA agen tiket bus. Ini tidak mengoperasikan layanan bus
-            itu sendiri. Untuk menyediakan pilihan operator bus yang komprehensif,
-            waktu keberangkatan dan harga untuk pelanggan, telah terikat dengan banyak bus
-            operator.
-            Saran Tiket XTRANS kepada pelanggan adalah memilih operator bus yang mereka ketahui
-            dari dan yang layanannya mereka merasa nyaman.</li>
-          <li>Waktu keberangkatan yang disebutkan di tiket hanyalah waktu tentatif. Namun
-            bus tidak akan meninggalkan sumber sebelum waktu yang disebutkan pada tiket.
-            Penumpang diwajibkan untuk memberikan yang berikut pada saat naik bus:
-             (1) Salinan tiket (Cetak tiket atau cetak email tiket).
-             (2) Bukti identitas yang valid
-            Gagal melakukannya, mereka mungkin tidak diizinkan naik bus.</li>
-           <li>Tanggung jawab Tiket XTRANS meliputi:
-            (1) Mengeluarkan tiket yang valid (tiket yang akan diterima oleh bus)
-            operator) untuk jaringan operator busnya
-            (2) Memberikan pengembalian dana dan dukungan jika terjadi pembatalan
-            (3) Memberikan dukungan dan informasi pelanggan jika ada penundaan /
-            kerepotan
-            Ganti bus: Jika operator bus mengubah jenis bus karena beberapa
-            alasannya, Tiket XTRANS akan mengembalikan jumlah diferensial kepada pelanggan setelah menjadi
-            diintimidasi oleh pelanggan dalam 24 jam perjalanan.</li>
-            <li> Kebijakan Pembatalan: Untuk SVR Tours & Travels: Antara 0 jam hingga 7 jam sebelumnya
-        perjalanan, biaya pembatalan adalah 100,0%. Antara 7 jam hingga 8 jam sebelumnya
-        perjalanan, biaya pembatalan adalah 50,0%. Dan, biaya pembatalan di atas adalah
-        10,0%.</li>
-        <li>Tanggung jawab Tiket XTRANS TIDAK termasuk:
-        (1) Bus operator bus tidak berangkat / mencapai tepat waktu
-        (2) Karyawan operator bus bersikap kasar
-        (3) Kursi bus operator dll tidak sesuai dengan pelanggan
-        harapan
-        (4) Operator bus membatalkan perjalanan karena alasan yang tidak dapat dihindari
-        (5) Bagasi pelanggan hilang / dicuri / rusak
-        (6) Operator bus mengubah kursi pelanggan pada menit terakhir
-        mengakomodasi seorang wanita / anak
-         (7) Pelanggan menunggu di titik keberangkatan yang salah (harap hubungi
-        operator bus untuk mengetahui titik boarding yang tepat jika Anda bukan penumpang reguler
-        traveler di bus tertentu)
-        (8) Operator bus mengubah titik boarding dan / atau menggunakan pick-up
-        Jika seseorang membutuhkan pengembalian dana untuk dikreditkan kembali ke rekening banknya, silakan
-        tulis rincian kupon tunai Anda ke support@Tiket XTRANS.in
-        * Biaya pengiriman ke rumah (jika ada), tidak akan dikembalikan dalam hal tiket
-        pembatalan</li>
-        <li>Jika email konfirmasi pemesanan dan sms tertunda atau gagal karena
-        alasan teknis atau sebagai akibat dari ID / nomor telepon email yang salah diberikan
-        oleh pengguna dll, tiket akan dianggap 'dipesan' selama tiket tersebut menunjukkan
-        kendaraan di titik boarding untuk membawa pelanggan ke keberangkatan bus
-        titik
-        di halaman konfirmasi</li>
+          <li>BTBS * ONLY bus ticket agents. It does not operate the bus service itself. In order to provide a comprehensive choice of bus operators, departure times and prices for customers, it has tied up with many bus operators.
+          BTBS advice to customers is to choose a bus operator they know from and whose service they are comfortable with.</li>
+          <li>The departure time stated on the ticket is only a tentative time. However, the bus will not leave the source before the time stated on the ticket. Passengers are required to provide the following when boarding the bus:
+             (1) Copy of ticket (Print ticket or print ticket email).
+             (2) Valid proof of identity Failing to do so, they may not be allowed to board the bus.</li>
+           <li>BTBS responsibilities include:
+           (1) Issue a valid ticket (ticket to be accepted by the bus operator) for its bus operator network
+           (2) Provide refund and support in case of cancellation
+           (3) Provide customer support and information in case of delays / hassles
+           Change bus: If the bus operator changes the bus type for some reason, BTBS will refund the differential amount to the customer after being intimidated by the customer within 24 hours of travel.</li>
+        <li>BTBS's liability does NOT include:
+        (1) Bus operator bus does not leave/reach on time
+        (2) The seat of the bus operator etc does not fit the customer
+        hope
+        (3) Customer's baggage lost/stolen/damaged
+        (4) The bus operator changes the boarding point and/or uses the pick-up
+        If someone needs a refund to be credited back to their bank account, please
+        write your cash coupon details to support@btbs.web</li>
         </ol>  
     </div>
 </div>

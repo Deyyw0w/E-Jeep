@@ -37,14 +37,14 @@ class Tiket extends CI_Controller {
 		$data['jadwal'] = $this->db->query("SELECT * FROM tbl_jadwal LEFT JOIN tbl_bus on tbl_jadwal.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan WHERE tbl_jadwal.wilayah_jadwal ='$tujuan' AND tbl_jadwal.kd_asal = '$asal' AND jam_berangkat_jadwal > '$getTime'")->result_array();
 		if (!empty($data['jadwal'])) {
 			if ($tujuan == $data['asal']['kota_tujuan']) {
-				$this->session->set_flashdata('message', 'swal("Cek", "Tujuan dan Asal tidak boleh sama", "error");');
+				$this->session->set_flashdata('message', 'swal("Cheque", "Purpose and Origin cannot be the same", "error");');
     			redirect('tiket');
 			}
 		}else{
 			if ($data['tanggal'] > date('Y-m-d')) {
 				$data['jadwal'] = $this->db->query("SELECT * FROM tbl_jadwal LEFT JOIN tbl_bus on tbl_jadwal.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan WHERE tbl_jadwal.wilayah_jadwal ='$tujuan' AND tbl_jadwal.kd_asal = '$asal'")->result_array();
 			}else{
-				$this->session->set_flashdata('message', 'swal("Kosong", "Jadwal Tidak Ada", "error");');
+				$this->session->set_flashdata('message', 'swal("Empty", "No Schedule", "error");');
 				redirect('tiket');
 			}
 		}
@@ -83,7 +83,7 @@ class Tiket extends CI_Controller {
 		if ($data['kursi']) {
 			$this->load->view('frontend/beli_step2', $data);
 		}else{
-			$this->session->set_flashdata('message', 'swal("Kosong", "Pilih Kursi Anda", "error");');
+			$this->session->set_flashdata('message', 'swal("Empty", "Choose Your Seat", "error");');
 			redirect('tiket/beforebeli/'.$data['asal'].'/'.$data['kd_jadwal']);
 		}
 	}
@@ -145,7 +145,7 @@ class Tiket extends CI_Controller {
 			$data['count'] = count($sqlcek);
 			$this->load->view('frontend/payment',$data);
 		}else{
-			$this->session->set_flashdata('message', 'swal("Kosong", "Tiket Order Tidak Ada", "error");');
+			$this->session->set_flashdata('message', 'swal("Empty", "Ticket Order Not Available", "error");');
     		redirect('tiket/cektiket');
 		}
 	}
@@ -156,13 +156,14 @@ class Tiket extends CI_Controller {
 		$data['tiket'] = $sqlcek;
 		$this->load->view('frontend/payment',$data);
 	}
+	
 	public function checkout($value=''){
 		$this->getsecurity();
 		$data['tiket'] = $value;
 		$send['sendmail'] = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='$value'")->row_array();
 		$send['count'] = count($send['sendmail']);
 		//email
-		$subject = 'XTRANS';
+		$subject = 'E-JEEP';
 		$message = $this->load->view('frontend/sendmail',$send, TRUE);
 		$to 	 = $this->session->userdata('email');
         $config = [
@@ -170,30 +171,30 @@ class Tiket extends CI_Controller {
 			'charset'   => 'utf-8',
 			'protocol'  => getenv('MAIL_DRIVER'),
 			'smtp_host' => getenv('MAIL_HOST'),
-			'smtp_user' => getenv('MAIL_USERNAME'), // Ganti dengan email gmail kamu
-			'smtp_pass' => getenv('MAIL_PASSWORD'),    // Password gmail kamu
+			'smtp_user' => getenv('MAIL_USERNAME'),
+			'smtp_pass' => getenv('MAIL_PASSWORD'),    
 			'smtp_port' => getenv('MAIL_PORT'),
 			'crlf'      => "rn",
 			'newline'   => "rn"
 		];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('XTRANS');
+        $this->email->from('E-JEEP');
         $this->email->to($to);
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {
-			$this->session->set_flashdata('message', 'swal("Cek", "Email kamu untuk melakukan pembayaran", "success");');
             $this->load->view('frontend/checkout', $data);
         } else {
-           echo 'Error! Kirim email error';
+           echo 'Error! Send an error email';
         }
 	}
+
 	public function caritiket(){
 		$id = $this->input->post('kodetiket');
 		$sqlcek = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_bus on tbl_order.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal WHERE kd_order ='".$id."'")->result_array();
 		if ($sqlcek == NULL) {
-			$this->session->set_flashdata('message', 'swal("Kosong", "Tidak Ada Tiket", "error");');
+			$this->session->set_flashdata('message', 'swal("Empty", "No Tickets", "error");');
     		redirect('tiket/cektiket');
 		}else{
 			$data['tiket'] = $sqlcek;
@@ -213,7 +214,7 @@ class Tiket extends CI_Controller {
 		$this->load->library('upload', $config);
 		if ( ! $this->upload->do_upload('userfile')){
 			$error = array('error' => $this->upload->display_errors());
-			$this->session->set_flashdata('message', 'swal("Gagal", "Cek Kembali Konfirmasi Anda", "error");');
+			$this->session->set_flashdata('message', 'swal("Gagal", "Check Back Your Confirmation", "error");');
 			redirect('tiket/konfirmasi/'.$this->input->post('kd_order').'/'.$this->input->post('total'));
 		}
 		else{
@@ -229,7 +230,7 @@ class Tiket extends CI_Controller {
 						'photo_konfirmasi' => $featured_image
 					);
 			$this->db->insert('tbl_konfirmasi', $data);
-			$this->session->set_flashdata('message', 'swal("Berhasil", "Terima Kasih Atas Konfirmasinya", "success");');
+			$this->session->set_flashdata('message', 'swal("Succeeded", "Thank you for the confirmation", "success");');
 			redirect('profile/tiketsaya/'.$this->session->userdata('kd_pelanggan'));
 		}
 	}

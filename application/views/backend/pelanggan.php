@@ -15,24 +15,25 @@
     <?php $this->load->view('backend/include/base_nav'); ?>
     <!-- Begin Page Content -->
     <div class="container-fluid">
-      <h1 class="h3 mb-2 text-gray-800">List Pelanggan</h1>
       <!-- DataTales Example -->
+      <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
+        <h1 class="h5 text-gray-800">Customers List</h1>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-dark">
                 <tr>
-                  <th>No</th>
-                  <th>Kode Pelanggan</th>
-                  <th>Nomor KTP</th>
-                  <th>Nama</th>
-                  <th>Alamat </th>
+                  <th>#</th>
+                  <th>Customer Code</th>
+                  <th>ID card number</th>
+                  <th>Name</th>
+                  <th>Address </th>
                   <th>Email</th>
-                  <th>Telepon</th>
-                  <th>AKSI</th>
+                  <th>Contact</th>
+                  <!-- <th>Action</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -45,7 +46,7 @@
                     <td><?= $row['alamat_pelanggan']; ?></td>
                     <td><?= $row['email_pelanggan']; ?></td>
                     <td><?= $row['telpon_pelanggan']; ?></td>
-                    <td><a href="<?= base_url('backend/home/viewpelanggan/'.$row['kd_pelanggan']) ?>" class="btn btn btn-primary">View</a></td>
+                    <!-- <td><a href="<?= base_url('backend/home/viewpelanggan/'.$row['kd_pelanggan']) ?>" class="btn btn btn-info">View</a></td> -->
                   </tr>
                 <?php } ?>
             </tbody>
@@ -65,6 +66,7 @@
 <!-- End of Content Wrapper -->
 </div>
 <!-- End of Page Wrapper -->
+<!-- Log on to codeastro.com for more projects -->
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
 <i class="fas fa-angle-up"></i>

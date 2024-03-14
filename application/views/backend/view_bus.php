@@ -106,36 +106,38 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <div class="container-fluid">
       <!-- Page Heading -->
       <!-- Basic Card Example -->
+      <!-- Log on to codeastro.com for more projects -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Bus [<?= $bus['kd_bus']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Bus Code [<?= $bus['kd_bus']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Nama BUS : <b> <?= $bus['nama_bus']?>]</b></p>
-                  <p>Plat Bus: <b><?= strtoupper($bus['plat_bus']) ?></b></p>
-                  <p>Kapasitas Kursi : <b><?= $bus['kapasitas_bus']; ?> Kursi</b></p>
+                  <p>Bus Name : <b> <?= $bus['nama_bus']?>]</b></p>
+                  <p>Bus Plate: <b><?= strtoupper($bus['plat_bus']) ?></b></p>
+                  <p>Seat Capacity : <b><?= $bus['kapasitas_bus']; ?> Seat</b></p>
                   <p>Status Bus    : <b><?= $bus['status_bus'] ?></td>
                   <?php if ($bus['status_bus'] == '1') { ?>
-                    <td class="btn-success"> Online</td> 
+                    <td class="btn-success"> Active</td> 
                     <?php } else { ?>
-                    <td class="btn-danger">Offline</td>
+                    <td class="btn-danger">InActive</td>
                   <?php } ?></b></p>
-                  <p>Keterengan : <b><?= $bus['desc_bus'] ?></b></p>
+                  <p>Information : <b><?= $bus['desc_bus'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>
             </div>
             <hr>
-            <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
-            <button data-toggle="modal" data-target="#edit" class="btn btn-primary pull-rigth">Edit</button>
+            <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+            <!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info pull-rigth">Edit</button> -->
           </div>
       </div>
     </div>
   </div>
   <!-- End of Main Content -->
+  <!-- Log on to codeastro.com for more projects -->
   <!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
@@ -174,7 +176,7 @@ span.onclick = function() {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

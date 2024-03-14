@@ -45,47 +45,54 @@ class Login extends CI_Controller {
 							redirect('tiket/beforebeli/'.$this->session->userdata('jadwal').'/'.$this->session->userdata('asal').'/'.$this->session->userdata('tanggal'));
 						}
 					}else{
-					$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						Salah Password
+						$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
+						Wrong Password
 					</div>');
 					redirect('login');
 				}
 			}else{
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						Username Belum verifikasi cek kembali email anda
-					</div>');
+				Username has not been verified, please check your email
+			</div>');
+			
 				redirect('login');
 			}
 		}else{
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						Username Tidak Terdaftar
-					</div>');
+			Username is not registered
+		</div>');
 			redirect('login');
 		}
 	}
 
 	public function daftar(){
-		$this->form_validation->set_rules('nomor', 'Nomor', 'trim|required|is_unique[tbl_pelanggan.telpon_pelanggan]',array(
-			'required' => 'Nomor HP Wajib Di isi.',
-			'is_unique' => 'Nomor Sudah Di Gunakan.'
-			 ));
-		$this->form_validation->set_rules('name', 'Name', 'trim|required',array(
-			'required' => 'Nama Wajib Di isi.',
-			 ));
+		$this->form_validation->set_rules('nomor', 'Nomor', 'trim|required|is_unique[tbl_pelanggan.telpon_pelanggan]', array(
+			'required' => 'Phone number must be filled.',
+			'is_unique' => 'Phone number has already been used.'
+		));
+		
+		$this->form_validation->set_rules('name', 'Name', 'trim|required', array(
+			'required' => 'Name must be filled.'
+		));
+		
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|is_unique[tbl_pelanggan.username_pelanggan]',array(
-			'required' => 'Username Wajib Di isi.',
-			'is_unique' => 'Username Sudah Di Gunakan.'
-			 ));
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[tbl_pelanggan.email_pelanggan]',array(
-			'required' => 'Email Wajib Di isi.',
-			'valid_email' => 'Masukan Email Dengan Benar',
-			'is_unique' => 'Email Sudah Di Gunakan.'
-			 ));
-		$this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[8]|matches[password2]',array(
-			'matches' => 'Password Tidak Sama.',
-			'min_length' => 'Password Minimal 8 Karakter.'
-			 ));
+		
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|is_unique[tbl_pelanggan.username_pelanggan]', array(
+			'required' => 'Username must be filled.',
+			'is_unique' => 'Username has already been used.'
+		));
+		
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[tbl_pelanggan.email_pelanggan]', array(
+			'required' => 'Email must be filled.',
+			'valid_email' => 'Please enter a valid email address.',
+			'is_unique' => 'Email has already been used.'
+		));
+		
+		$this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[8]|matches[password2]', array(
+			'matches' => 'Passwords do not match.',
+			'min_length' => 'Password must be at least 8 characters long.'
+		));
+		
 		$this->form_validation->set_rules('password2', 'Password', 'trim|required|matches[password1]');
 		if ($this->form_validation->run() == false) {
 			$this->load->view('frontend/daftar');
@@ -113,7 +120,7 @@ class Login extends CI_Controller {
 			$this->db->insert('tbl_pelanggan', $data);
 			$this->db->insert('tbl_token_pelanggan', $data1);
 			$this->_sendmail($token,'verify');
-			$this->session->set_flashdata('message', 'swal("Berhasil", "Berhasil Daftar Harap Cek Email Kamu", "success");');
+			$this->session->set_flashdata('message', 'swal("Succeeded", "Succeeded Register Please Check Your Email", "success");');
     		redirect('login');
 		}
 
@@ -132,21 +139,22 @@ class Login extends CI_Controller {
            ];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('XTRANS');
+        $this->email->from('E-JEEP');
         $this->email->to($this->input->post('email'));
         // $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
-        if ($type == 'verify') {
-        	$this->email->subject('Account verify Tiket XTRANS');
-       		$this->email->message('Klik link tersebut untuk verifikasi akun anda <a href="'.base_url('login/verify?email='.$this->input->post('email').'&token='.$token).'" >Verifikasi</a>');
-        }elseif ($type == 'forgot') {
-        	$this->email->subject('Akun Reset Tiket XTRANS');
-       		$this->email->message('Klik link tersebut untuk Reset akun anda <a href="'.base_url('login/forgot?email='.$this->input->post('email').'&token='.$token).'" >Reset Password</a>');
-        }
-        if ($this->email->send()) {
-            return true;
-        } else {
-            echo 'Error! email tidak dapat dikirim.';
-        }
+		if ($type == 'verify') {
+			$this->email->subject('Account Verification E-JEEP Reservation');
+			$this->email->message('Click the link below to verify your account: <a href="' . base_url('login/verify?email=' . $this->input->post('email') . '&token=' . $token) . '">Verify</a>');
+		} elseif ($type == 'forgot') {
+			$this->email->subject('Reset Account E-JEEP Reservation');
+			$this->email->message('Click the link below to reset your account: <a href="' . base_url('login/forgot?email=' . $this->input->post('email') . '&token=' . $token) . '">Reset Password</a>');
+		}
+		if ($this->email->send()) {
+			return true;
+		} else {
+			echo 'Error! Email cannot be sent.';
+		}
+		
 	}
 	public function verify($value=''){
 		$email = $this->input->get('email');
@@ -161,7 +169,7 @@ class Login extends CI_Controller {
 					$this->db->update('tbl_pelanggan', $update,$where);
 					$this->db->delete('tbl_token_pelanggan',['email_token' => $email]);
 					$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-					Berhasil Verifikasi Login Kembali Akun Anda
+					Succeeded Verifikasi Login Kembali Akun Anda
 					</div>');
 					redirect('login');
 				}else{
@@ -174,43 +182,46 @@ class Login extends CI_Controller {
 				}
 			}else{
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						  Gagal Verifikasi Token Salah 
+						  Wrong Token Verification Failed
+ 
 						</div>');
 	    		redirect('login');
 			}
 		}else{
 		$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						  Gagal Verifikasi Email
+		Email Verification Failed
+
 						</div>');
 	    redirect('login');
 		}
 	}
 	public function lupapassword($value=''){
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email',array(
-			'required' => 'Email Wajib Di isi.',
-			'valid_email' => 'Masukan Email Dengan Benar',
-			 ));
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', array(
+			'required' => 'Email must be filled.',
+			'valid_email' => 'Please enter a valid email address.',
+		));
+		
 		if ($this->form_validation->run() == false) {
 			$this->load->view('frontend/lupapassword');
 		} else {
 			$email = $this->input->post('email');
-			$sqlcek = $this->db->get_where('tbl_pelanggan',['email_pelanggan' => $email],['status_pelanggan' => 1])->row_array();
+			$sqlcek = $this->db->get_where('tbl_pelanggan', ['email_pelanggan' => $email, 'status_pelanggan' => 1])->row_array();
 			if ($sqlcek) {
-				$token = md5($email.date("d-m-Y H:i:s"));
+				$token = md5($email . date("d-m-Y H:i:s"));
 				$data = array(
-				'nama_token' => $token,
-				'email_token' => $email,
-				'date_create_token' => time()
-				 );
-			$this->db->insert('tbl_token_pelanggan', $data);
-			$this->_sendmail($token,'forgot');
-			$this->session->set_flashdata('message', 'swal("Berhasil", "Berhasil Reset Password Harap Cek Email Kamu", "success");');
-    		redirect('login');
-			}else{
+					'nama_token' => $token,
+					'email_token' => $email,
+					'date_create_token' => time()
+				);
+				$this->db->insert('tbl_token_pelanggan', $data);
+				$this->_sendmail($token, 'forgot');
+				$this->session->set_flashdata('message', 'swal("Succeeded", "Succeeded Reset Password Please Check Your Email", "success");');
+				redirect('login');
+			} else {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						  Email Tidak Ada Atau Akun Belum Aktif
-						</div>');
-	   			redirect('login/lupapassword');
+					Email not found or the account is not active.
+				</div>');
+				redirect('login/lupapassword');
 			}
 		}
 	}
@@ -225,13 +236,15 @@ class Login extends CI_Controller {
 				$this->changepassword();
 			}else{
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						  Gagal Reset Token Email Salah 
+						  Failed to Reset Wrong Email Token
+ 
 						</div>');
 	    		redirect('login');
 			}
 		}else{
 		$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						  Gagal Reset Email Salah
+		Failed to Reset Wrong Email
+
 						</div>');
 	    redirect('login');
 		}
@@ -241,8 +254,8 @@ class Login extends CI_Controller {
 			redirect('login/daftar');
 		}
 		$this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[8]|matches[password2]',array(
-			'matches' => 'Password Tidak Sama.',
-			'min_length' => 'Password Minimal 8 Karakter.'
+			'matches' => 'The password is not the same.',
+			'min_length' => 'Password Minimum 8 Characters.'
 			 ));
 		$this->form_validation->set_rules('password2', 'Password', 'trim|required|matches[password1]');
 		if ($this->form_validation->run() == false) {
@@ -258,8 +271,8 @@ class Login extends CI_Controller {
 			$this->session->unset_userdata('resetemail');
 			$this->db->delete('tbl_token_pelanggan',['email_token' => $email]);
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-					Berhasil Reset, Login Kembali Akun Anda
-					</div>');
+			Succeeded Reset, Login Back to Your Account
+			</div>');
 			redirect('login');
 		}
 	}

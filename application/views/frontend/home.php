@@ -13,8 +13,9 @@
 		<meta name="keywords" content="">
 		<!-- meta character set -->
 		<meta charset="UTF-8">
+		<!-- Log on to codeastro.com for more projects -->
 		<!-- Site Title -->
-		<title>BUS XTRANS</title>
+		<title>BUS TICKET BOOKING</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--
 		CSS
@@ -55,14 +56,13 @@
 			<div class="container">
 				<div class="row fullscreen d-flex align-items-center justify-content-end">
 					<div class="banner-content col-lg-7 col-md-12">
-						<h4  class="combined">Jaminan Tiket Resmi</h4>
-							<h2 class="combined" >
-						Tiket XTRANS dijamin resmi, pastikan Anda bisa pergi!				
+						<!-- <h4  class="combined">Official Ticket Guarantee</h4> -->
+							<h2 class="text-white" >
+							Bus Ticket Booking System		
 							</h2>
 						<p class="text-white" >
-							Sekarang cari tiket bus semakin mudah, bisa pesan online di Tiket XTRANS. Tak perlu repot ke terminal atau kantor agen, sekarang Anda bisa beli tiket dengan mudah. Booking Cepat dan Mudah. Bebas Pilih Kursi. Termurah Setiap Hari. Customer Service 24/7. Semua Kelas dan Rute.
-						</p>
-						<a href="<?php echo base_url() ?>tiket" class="primary-btn header-btn text-uppercase">Cari Tiket</a>
+						Now finding bus tickets is easier, you can order online at BTBS. No need to bother going to the terminal or agent office, now you can buy tickets easily. Fast and Easy Booking. Free to Choose Seats. Cheapest Every Day. 24/7 Customer Service. All Classes and Routes.						</p>
+						<a href="<?php echo base_url() ?>tiket" class="btn btn-danger text-uppercase">Search Tickets</a>
 					</div>
 				</div>
 			</div>
@@ -72,35 +72,36 @@
 			<div class="container">
 				<div class="row d-flex justify-content-center">
 					<div class="col-md-8 pb-40 header-text">
-						<h1>CARA PEMESANAN TIKET BIS</h1>
+						<h1>STEPS TO BOOK A BUS TICKET</h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
 						<div class="single-service">
-							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/a1.png" width="100" height="100" alt="">
-							<h4>Pilih rincian perjalanan
+							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b1.png" width="150" height="150" alt="">
+							<h4>Select trip details
 							</h4>
 							<p>
-								Masukkan tempat keberangkatan, tujuan, tanggal perjalanan dan kemudian klik 'Cari'
+							Enter the place of departure, destination, travel date and then click 'Search'
 							</p>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6">
 						<div class="single-service">
-							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/a3.png" width="100" height="100" alt="">
-							<h4>Pilih bis dan tempat duduk anda</h4>
+							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b2.png" width="150" height="150" alt="">
+							<h4>Choose your bus and seat</h4>
 							<p>
-								Pilih bis, tempat duduk, tempat keberangkatan, tujuan, isi rincian penumpang dan klik 'Pembayaran'
+							Select bus, seat, place of departure, destination, fill in passenger details and click 'Payment'
 							</p>
 						</div>
 					</div>
+					<!-- Log on to codeastro.com for more projects -->
 					<div class="col-lg-4 col-md-6">
 						<div class="single-service">
-							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/a2.png" width="100" height="100" alt="">
-							<h4>Cara Pembayaran yang Mudah</h4>
+							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b3.png" width="150" height="150" alt="">
+							<h4>Easy Payment Method</h4>
 							<p>
-								Pembayaran dapat dilakukan melalui transfer ATM, Internet banking.
+							Payment can be made via ATM transfer, Internet banking.
 							</p>
 						</div>
 					</div>
@@ -109,6 +110,7 @@
 		</section>
 		<!-- End service Area -->
 		<!-- End feature Area -->
+		<!-- Log on to codeastro.com for more projects -->
 		<!-- End Generic Start -->
 		<!-- start footer Area -->
 		<?php $this->load->view('frontend/include/base_footer'); ?>

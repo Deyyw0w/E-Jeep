@@ -14,7 +14,8 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>BUS XTRANS</title>
+		<!-- Log on to codeastro.com for more projects -->
+		<title>BUS TICKET BOOKING</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
 		<?php $this->load->view('frontend/include/base_css'); ?>
@@ -24,7 +25,7 @@
 		<?php $this->load->view('frontend/include/base_nav'); ?>
 		<div class="generic-banner">
 			<br>
-			<h2 class="text-white" align="center">Tikat Saya</h2>
+			<h2 class="" align="center">My Ticket </h2>
 			<div class="container ">
 				<div class="row d-flex justify-content-center">
 					<?php foreach ($tiket as $row) { ?>
@@ -33,20 +34,29 @@
 						<div class="card " style="width: 18rem;">
 							<img class="card-img-top" src="<?php echo base_url($row['qrcode_order']) ?>" alt="Card image cap" >
 							<div class="card-body" align="left">
-								<a href="<?php echo base_url().$row['qrcode_order'] ?>" class="card-link" download>Download QrCode</a>
-								<h5 class="card-title">Kode Order : <?php echo $row['kd_order']; ?></h5>
-								<p>Nama : <?php echo $row['nama_order']; ?>
-								 <br>Tanggal Pesan : <?php echo $row['tgl_beli_order']; ?></br>
-									Status Pembayaran : <?php if ($row['status_order'] == '1') { ?>
-									<i class='btn-danger'>Belum bayar</i>
-									<?php }else{ ?><i class='btn-success'>Lunas bayar</i>
+								<?php if ($row['status_order'] == '3'){ ?>
+									<a href="#" class="card-link">Cancelled by Administrator</a>
+								<?php }else {?>
+								<a href="<?php echo base_url().$row['qrcode_order'] ?>" class="card-link" download>Download QrCode</a><?php }?>
+								<h5 class="card-title">Booking Code : <?php echo $row['kd_order']; ?></h5>
+								<p>Name : <?php echo $row['nama_order']; ?>
+								 <br>Booking Date : <?php echo $row['tgl_beli_order']; ?></br>
+								 Payment status : <?php if ($row['status_order'] == '1') { ?>
+									<i class='btn-danger'>Unpaid</i>
+									<?php }else if ($row['status_order'] == '3'){ ?>
+										<i class='btn-warning'>Cancelled</i>
+									<?php }else{?>
+									
+									<i class='btn-success'>Paid</i>
 									<?php } ?>
 									<hr>
 									<?php if ($row['status_order'] == '1') { ?>
-									<a href="<?php echo base_url('tiket/payment/'.$row['kd_order']) ?>" class="btn btn-primary">Cek Pembayaran</a>
-									<?php }else{ ?>
+									<a href="<?php echo base_url('tiket/payment/'.$row['kd_order']) ?>" class="btn btn-primary">Check Payment</a>
+									<?php }else if ($row['status_order'] == '3'){ ?>
+										<a href="<?php echo base_url('tiket/') ?>" class="btn btn-warning pull-right">Book Another</a>
+									<?php }else {?>
 									<!-- <a href="<?php echo base_url('backend/home/refund') ?>" class="btn btn-danger" >Batal Tiket</a> -->
-									<a href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>" class="btn btn-success pull-right" download>Cetak Tiket</a>
+									<a href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>" class="btn btn-success pull-right" download>Print Ticket</a>
 									<?php } ?>
 								</div>
 							</div>
@@ -56,7 +66,9 @@
 					</div>
 				</div>
 				<br><br>
-				</div>		<!-- End banner Area -->
+				</div>
+				<!-- Log on to codeastro.com for more projects -->
+				<!-- End banner Area -->
 				<!-- End Generic Start -->
 				<!-- start footer Area -->
 				<?php $this->load->view('frontend/include/base_footer'); ?>

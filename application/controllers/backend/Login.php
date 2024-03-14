@@ -51,33 +51,35 @@ class Login extends CI_Controller {
 	}
 
 	public function cekuser(){
-    $username = strtolower($this->input->post('username'));
-    $getUser = $this->db->query('select * from tbl_admin where username_admin = "'.$username.'"')->row();
-    $password = $this->input->post('password');
-
-    if (password_verify($password,$getUser->password_admin)) {
-    	// $this->db->where('username_admin',$username);
-        // $query = $this->db->get('tbl_admin');
-        $sess = array(
-            'kd_admin' => $getUser->kd_admin,
-            'username_admin' => $getUser->username_admin,
-            'password_admin' => $getUser->password_admin,
-            'nama_admin'     => $getUser->nama_admin,
-            'img_admin'	=> $getUser->img_admin,
-            'email_admin'   => $getUser->email_admin,
-            // 'telpon_admin'   => $getUser->telpon_admin,
-            // 'alamat_admin'	=> $getUser->alamat_admin,
-            'level'	=> $getUser->level_admin
-        );
-        // die(print_r($sess));
-        $this->session->set_userdata($sess);
-        redirect('backend/home');
-        // }
-    }else{
-    	$this->session->set_flashdata('message', 'swal("Gagal", "Email/Password Salah", "error");');
-    	redirect('backend/login');
-    	}
-	}
+        $username = strtolower($this->input->post('username'));
+        $password = $this->input->post('password');
+    
+        $getUser = $this->db->query('SELECT * FROM tbl_admin WHERE username_admin = "'.$username.'"')->row();
+        if ($getUser) {
+            // Verify the password
+            if (password_verify($password, $getUser->password_admin)) {
+                $sess = array(
+                    'kd_admin' => $getUser->kd_admin,
+                    'username_admin' => $getUser->username_admin,
+                    'nama_admin'     => $getUser->nama_admin,
+                    'img_admin' => $getUser->img_admin,
+                    'email_admin'   => $getUser->email_admin,
+                    'level' => $getUser->level_admin
+                );
+                
+                $this->session->set_userdata($sess);
+                redirect('backend/home');
+            } else {
+                $this->session->set_flashdata('message', 'swal("Fail", "Wrong Email/Password", "error");');
+                redirect('backend/login');
+            }
+        } else {
+            $this->session->set_flashdata('message', 'swal("Fail", "Username not found", "error");');
+            redirect('backend/login');
+        }
+        
+    }
+    
 
 }
 

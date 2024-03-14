@@ -40,7 +40,8 @@ class Jadwal extends CI_Controller {
 			$tujuan = $this->db->query("SELECT * FROM tbl_tujuan
                WHERE kd_tujuan ='".$this->input->post('tujuan')."'")->row_array();
 			if ($asal == $tujuan['kd_tujuan']) {
-				$this->session->set_flashdata('message', 'swal("Berhasil", "Tujuan JadwalT Tidak Boleh Sama", "error");');
+				$this->session->set_flashdata('message', 'swal("Succeeded", "The purpose of E-Jeep cannot be the same
+				", "error");');
 			redirect('backend/jadwal');
 			}else{
 			$kode = $this->getkod_model->get_kodjad();
@@ -56,7 +57,7 @@ class Jadwal extends CI_Controller {
 					 );
 			// die(print_r($simpan));
 			$this->db->insert('tbl_jadwal', $simpan);
-			$this->session->set_flashdata('message', 'swal("Berhasil", "Data Jadwal Di Simpan", "success");');
+			$this->session->set_flashdata('message', 'swal("Succeeded", "Schedule Data Saved", "success");');
 			redirect('backend/jadwal');
 			}
 			
@@ -73,7 +74,7 @@ class Jadwal extends CI_Controller {
 			// die(print_r($data));
 			$this->load->view('backend/view_jadwal',$data);
 	 	}else{
-	 		$this->session->set_flashdata('message', 'swal("Gagal", "Data Jadwal Di Simpan", "error");');
+	 		$this->session->set_flashdata('message', 'swal("Fail", "Schedule Data Saved", "error");');
 			redirect('backend/jadwal');
 	 	}
 	}	

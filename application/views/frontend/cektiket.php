@@ -13,8 +13,9 @@
 		<meta name="keywords" content="">
 		<!-- meta character set -->
 		<meta charset="UTF-8">
+		<!-- Log on to codeastro.com for more projects -->
 		<!-- Site Title -->
-		<title>Dapat Tiket</title>
+		<title>Get Tickets</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/frontend/datepicker/dcalendar.picker.css">
@@ -27,25 +28,26 @@
 			<div class="overlay overlay-bg"></div>
 			<div class="container">
 				<div class="row d-flex justify-content-center">
-					<div class="col-lg-4">
+					<div class="col-lg-6">
 						<!-- Default Card Example -->
-						<div class="card wobble animated">
+						<div class="card wobble">
 					  <div class="card-header">
-					   <i class="fa fa-ticket"></i> Cari Tiket
+					   <i class="fas fa-ticket"></i> Check My Tickets
 					  </div>
 					  <div class="card-body">
 					    <form action="<?php echo base_url() ?>tiket/cekorder" method="post">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Masukan Kode order</label>
-										<input type="text" id="" class="form-control" id="" name="kodetiket" placeholder="Kode Tiket" required="">
+										<label for="exampleInputEmail1">Enter your booking code</label>
+										<input type="text" id="" class="form-control" id="" name="kodetiket" placeholder="Ticket Code" required="">
 									</div>
-									<button type="submit" class="btn btn-primary pull-right">Cari </button>
+									<button type="submit" class="btn btn-success pull-right">Search </button>
 								</form>
 					  </div>
 					</div>
 					</div>
 			</section>
 			<!-- End banner Area -->
+			<!-- Log on to codeastro.com for more projects -->
 			<!-- start footer Area -->
 			<?php $this->load->view('frontend/include/base_footer'); ?>
 			<!-- js -->

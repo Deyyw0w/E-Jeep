@@ -105,24 +105,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
+      <!-- Log on to codeastro.com for more projects -->
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Tujuan [<?= $rute['kd_tujuan']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Destination Code [<?= $rute['kd_tujuan']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Kota Tujuan     : <b> <?= strtoupper($rute['kota_tujuan']) ?></b></p>
-                  <p>Tujuan  : <b><?= $rute['terminal_tujuan']; ?></b></p>
+                  <p>Destination City     : <b> <?= strtoupper($rute['kota_tujuan']) ?></b></p>
+                  <p>Destination  : <b><?= $rute['terminal_tujuan']; ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>
             </div>
             <hr>
-            <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
-            <button data-toggle="modal" data-target="#edit" class="btn btn-primary pull-rigth">Edit</button>
+            <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+            <!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info pull-rigth">Edit</button> -->
           </div>
       </div>
     </div>
@@ -166,7 +167,7 @@ span.onclick = function() {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

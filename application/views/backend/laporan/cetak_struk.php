@@ -22,7 +22,7 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
         $printer -> setJustification(Printer::JUSTIFY_CENTER);
         // $printer -> bitImage($logo);
         $printer -> selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
-        $printer -> text("BUS XTRANS\n");
+        $printer -> text("BTBS\n");
         $printer -> selectPrintMode();
         $printer -> text("Jl. Meruya Ilir Raya\n");
         $printer -> text("Srengseng - Kembangan\n");
@@ -32,13 +32,13 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
         $printer -> text("No Order    : ");
         $printer -> text($cetak[0]['kd_order']);
         $printer -> feed();
-        $printer -> text("Nama Pemesan : ");
+        $printer -> text("Customer Name : ");
         $printer -> text($cetak[0]['nama_temp']);
         $printer -> feed();
         $printer -> text("--------------------------------\n"); 
         /* Title of receipt */
         $printer -> setEmphasis(true);
-        $printer -> text("Keterangan                Total");
+        $printer -> text("Information                Total");
         $printer -> setEmphasis(false);
         foreach ($cetak as $i) {
         $printer -> feed();
@@ -67,7 +67,7 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
         /* Footer */
         $printer -> feed();
         $printer -> setJustification(Printer::JUSTIFY_CENTER);
-        $printer -> text("Terima Kasih \n");
+        $printer -> text("Thank you \n");
         $printer -> text($date . "\n");
         $printer -> feed();
 

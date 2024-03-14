@@ -1,7 +1,7 @@
 <footer class="sticky-footer bg-white">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright &copy; Bahyu Sanciko <?= date('Y') ?></span>
+			<span>Copyright &copy; Jhay Ramirez <?= date('Y') ?></span>
 		</div>
 	</div>
 </footer>
@@ -35,6 +35,6 @@
 <div class="preloader">
 	<div class="loading">
 		<img src="<?= base_url('assets/frontend/img/preloader.gif') ?>" width="80">
-		<p>Harap Tunggu</p>
+		<p>Please wait..</p>
 	</div>
 </div>

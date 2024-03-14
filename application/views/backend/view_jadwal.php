@@ -105,33 +105,35 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
+      <!-- Log on to codeastro.com for more projects -->
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Jadwal [<?= $jadwal['kd_jadwal']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Schedule Code [<?= $jadwal['kd_jadwal']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>BUS     : <b> <?= $jadwal['kd_bus']." [".$jadwal['nama_bus'].'-'.$jadwal['plat_bus'] ?>]</b></p>
-                  <p>Asal :  <b><?= strtoupper($asal['kota_tujuan'])." - ".$asal['terminal_tujuan']; ?></b></p>
-                  <p>Tujuan  : <b><?= strtoupper($jadwal['kota_tujuan'])." - ".$jadwal['terminal_tujuan']; ?></b></p>
-                  <p>Jam Berangkat    : <b><?= date('H:i',strtotime($jadwal['jam_berangkat_jadwal'])) ?></b></p>
-                  <p>Jam Tiba : <b><?= date('H:i',strtotime($jadwal['jam_tiba_jadwal'])) ?></b></p>
-                  <p>Harga Jadwal : <b>Rp <?= $jadwal['harga_jadwal']; ?></b></p>
+                  <p>Bus     : <b> <?= $jadwal['kd_bus']." [".$jadwal['nama_bus'].'-'.$jadwal['plat_bus'] ?>]</b></p>
+                  <p>Origin :  <b><?= strtoupper($asal['kota_tujuan'])." - ".$asal['terminal_tujuan']; ?></b></p>
+                  <p>Destination  : <b><?= strtoupper($jadwal['kota_tujuan'])." - ".$jadwal['terminal_tujuan']; ?></b></p>
+                  <p>Departure    : <b><?= date('H:i',strtotime($jadwal['jam_berangkat_jadwal'])) ?></b></p>
+                  <p>Arrival : <b><?= date('H:i',strtotime($jadwal['jam_tiba_jadwal'])) ?></b></p>
+                  <p>Schedule Price : <b>$<?= $jadwal['harga_jadwal']; ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>
             </div>
             <hr>
-            <a class="btn btn-default" href="javascript:history.back()"> Kembali</a>
-            <button data-toggle="modal" data-target="#edit" class="btn btn-primary pull-rigth">Edit</button>
+            <a class="btn btn-danger" href="javascript:history.back()"> Go Back</a>
+            <!-- <button data-toggle="modal" data-target="#edit" class="btn btn-info pull-rigth">Edit</button> -->
           </div>
       </div>
     </div>
   </div>
   <!-- End of Main Content -->
+  <!-- Log on to codeastro.com for more projects -->
   <!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
@@ -170,7 +172,7 @@ span.onclick = function() {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

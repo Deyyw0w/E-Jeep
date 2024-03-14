@@ -13,8 +13,9 @@
 		<meta name="keywords" content="">
 		<!-- meta character set -->
 		<meta charset="UTF-8">
+		<!-- Log on to codeastro.com for more projects -->
 		<!-- Site Title -->
-		<title>BUS XTRANS</title>
+		<title>BUS TICKET BOOKING</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--
 		CSS
@@ -29,7 +30,7 @@
 				<div class="row height align-items-center justify-content-center">
 					<div class="col-lg-5">
 						<div class="card card-login mx-auto mt-10">
-							<div class="card-header">Lupa Password</div>
+							<div class="card-header">Forgot password</div>
 							<div class="card-body" align="left">
 								<?php echo $this->session->flashdata('pesan'); ?>
 								 <form action="<?php echo base_url('login/lupapassword') ?>" method="post" >
@@ -42,7 +43,7 @@
 				                    </button>
 				                  </form>
 								<div class="text-center">
-									<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login/daftar">Daftar</a>
+									<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login/daftar">Register</a>
 									<a class="d-block small" href="<?php echo base_url() ?>login">Login</a>
 									</p>
 								</div>

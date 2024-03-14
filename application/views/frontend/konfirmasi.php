@@ -13,8 +13,9 @@
 		<meta name="keywords" content="">
 		<!-- meta character set -->
 		<meta charset="UTF-8">
+		<!-- Log on to codeastro.com for more projects -->
 		<!-- Site Title -->
-		<title>Dapat Tiket</title>
+		<title>Get Tickets</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/datepicker/dcalendar.picker.css">
@@ -27,45 +28,53 @@
 			<div class="overlay overlay-bg"></div>
 			<div class="container">
 				<div class="row d-flex justify-content-center">
-					<div class="col-lg-4">
+					<div class="col-lg-6">
 						<!-- Default Card Example -->
 						<div class="card wobble animated">
 					  <div class="card-header">
-					    Konfirmasi Pembayaran
+					  Payment Confirmation
 					  </div>
 					  <div class="card-body">
 					    <form action="<?= base_url() ?>tiket/insertkonfirmasi" method="post" enctype="multipart/form-data">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Kode Order</label>
-										<input type="text" id="" class="form-control" id="" name="kd_order" value="<?= $id ?>" placeholder="Kode Tiket">
+										<label for="exampleInputEmail1">Booking Code</label>
+										<input type="text" id="" class="form-control" id="" name="kd_order" value="<?= $id ?>" placeholder="Ticket Code">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">BANK Kamu</label>
+										<label for="exampleInputEmail1">Your BANK</label>
 										<select class="form-control" name="bank_km">
-											<option value="" selected disabled="">Pilih Bank</option>
-											<option value="BCA" >BCA</option>
-											<option value="Mandiri">Mandiri</option>
-											<option value="BNI">BNI</option>
-											<option value="BRI">BRI</option>
+											<option value="" selected disabled="">Select Bank</option>
+											<option value="New Leaf Bank" >New Leaf Bank</option>
+											<option value="Zenith Bank">Zenith Bank</option>
+											<option value="WestView Bank">WestView Bank</option>
+											<option value="Aurora">Aurora</option>
+											<option value="RoyalCrown Bank">RoyalCrown Bank</option>
 										</select>
+										<!-- Log on to codeastro.com for more projects -->
+										<!-- <select class="form-control" name="bank" required>
+											<option value="" selected disabled="">Select Bank</option>
+											<?php foreach ($bank as $row) { ?>
+											<option value="<?php echo $row['kd_bank'] ?>"><?php echo $row['nama_bank']; ?></option>
+											<?php } ?>
+										</select> -->
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Nomor Rekening</label>
-										<input type="number" class="form-control" name="nomrek" value="" placeholder="Nomor Rekening">
+										<label for="exampleInputEmail1">Account number</label>
+										<input type="number" class="form-control" name="nomrek" value="" placeholder="Account number">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Nama Pengirim</label>
-										<input type="text" class="form-control" name="nama" value="" placeholder="Nama Pengirim">
+										<label for="exampleInputEmail1">Name of the sender</label>
+										<input type="text" class="form-control" name="nama" value="" placeholder="Name of the sender">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Jumlah Pembayaran</label>
-										<input type="number" class="form-control" name="total" value="<?= $total ?>" placeholder="Total Harga" readonly>
+										<label for="exampleInputEmail1">Payment Amount</label>
+										<input type="number" class="form-control" name="total" value="<?= $total ?>" placeholder="Total price" readonly>
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Upload Poto Transaksi</label>
+										<label for="exampleInputEmail1">Upload Transaction Photo</label>
 										<input type="file" class="form-control" name="userfile" required="">
 									</div>
-									<button type="submit" class="btn btn-primary pull-right">Konfirmasi </button>
+									<button type="submit" class="btn btn-success pull-right">Submit </button>
 								</form>
 					  </div>
 					</div>

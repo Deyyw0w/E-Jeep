@@ -27,7 +27,7 @@ class Tiket extends CI_Controller {
 		if ($data['tiket']) {
 			$this->load->view('backend/view_tiket', $data);
 		}else{
-			$this->session->set_flashdata('message', 'swal("Kosong", "Tiket Tidak Ada", "error");');
+			$this->session->set_flashdata('message', 'swal("Empty", "Tickets Not Available", "error");');
     		redirect('backend/tiket');
 		}	
 	}

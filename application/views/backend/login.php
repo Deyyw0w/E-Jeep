@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Login Mantik</title>
+	<title>Admin Login</title>
 
 	<!-- Custom fonts for this template-->
 	<link href="<?= base_url() ?>assets/backend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-gradient-info">
 
 	<div class="container">
 
@@ -38,18 +38,18 @@
 							<div class="col-lg-11">
 								<div class="p-5">
 									<div class="text-center">
-										<h1 class="h4 text-gray-900 mb-4"><i class="fas fa-bus"></i> Login ManTik</h1>
+										<h1 class="h4 text-gray-900 mb-4"><i class="fas fa-bus"></i> Admin Login Panel</h1>
 									</div>
 									<form class="user" method="post" action="<?= base_url('backend/login/cekuser') ?>">
 										<div class="form-group">
 											<input required="" type="text" class="form-control form-control-user" name="username"
-												aria-describedby="emailHelp" placeholder="Username...">
+												aria-describedby="emailHelp" placeholder="Username">
 										</div>
 										<div class="form-group">
 											<input required="" type="password" class="form-control form-control-user" name="password"
 												placeholder="Password">
 										</div>
-										<button type="submit" class="btn btn-primary btn-user btn-block">
+										<button type="submit" class="btn btn-success btn-block">
 											Login
 										</button>
 										<!--  <hr>
@@ -61,7 +61,7 @@
                     </a> -->
 									</form>
 									<hr>
-									<p align="center" class="login-box-msg">IP Kamu : <?= $ipaddres; ?></p>
+									<!-- <p align="center" class="login-box-msg">Your IP : <?= $ipaddres; ?></p> -->
 
 								</div>
 							</div>

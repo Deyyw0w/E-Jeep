@@ -26,7 +26,8 @@ class Profile extends CI_Controller {
 			'telpon_pelanggan'		=> $this->input->post('hp'),
 			 );
 		$this->db->update('tbl_pelanggan', $update,$where);
-		$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');
+		$this->session->set_flashdata('message', 'swal("Succeeded", "Edited Data
+		", "success");');
 		redirect('profile/profilesaya/'.$id);
 	}
 	public function tiketsaya($id=''){
@@ -39,19 +40,22 @@ class Profile extends CI_Controller {
 		$this->load->library('form_validation');
 		$pelanggan = $this->db->query("SELECT password_pelanggan FROM tbl_pelanggan where kd_pelanggan ='".$id."'")->row_array();
 		// die(print_r($pelanggan));
-		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]',array(
-			'required' => 'Masukan Password',
-			 ));
-		$this->form_validation->set_rules('new_password1', 'new_password1', 'trim|required|min_length[8]|matches[new_password2]',array(
-			'required' => 'Masukan Password.',
-			'matches' => 'Password Tidak Sama.',
-			'min_length' => 'Password Minimal 8 Karakter.'
-			 ));
-		$this->form_validation->set_rules('new_password2', 'new_password2', 'trim|required|min_length[8]|matches[new_password1]',array(
-			'required' => 'Masukan Password.',
-			'matches' => 'Password Tidak Sama.',
-			'min_length' => 'Password Minimal 8 Karakter.'
-			 ));
+		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]', array(
+			'required' => 'Enter Password',
+		));
+		
+		$this->form_validation->set_rules('new_password1', 'new_password1', 'trim|required|min_length[8]|matches[new_password2]', array(
+			'required' => 'Enter Password.',
+			'matches' => 'Passwords do not match.',
+			'min_length' => 'Password must be at least 8 characters long.'
+		));
+		
+		$this->form_validation->set_rules('new_password2', 'new_password2', 'trim|required|min_length[8]|matches[new_password1]', array(
+			'required' => 'Enter Password.',
+			'matches' => 'Passwords do not match.',
+			'min_length' => 'Password must be at least 8 characters long.'
+		));
+		
 		if ($this->form_validation->run() == false) {
 			$this->load->view('frontend/changepassword');
 		} else {
@@ -59,13 +63,13 @@ class Profile extends CI_Controller {
 			$newpassword 	 = $this->input->post('new_password1');
 			if (!password_verify($currentpassword, $pelanggan['password_pelanggan'])) {
 				$this->session->set_flashdata('gagal', '<div class="alert alert-danger" role="alert">
-					  Password Sebelumnya Salah
-					</div>');
+				Previous Password Incorrect
+				</div>');
 				redirect('profile/changepassword');
 			}elseif ($currentpassword == $newpassword) {
 				$this->session->set_flashdata('gagal', '<div class="alert alert-danger" role="alert">
-					  Password Tidak Boleh Sama Sebelumnya
-					</div>');
+				Password must not be the same as before
+				</div>');
 				redirect('profile/changepassword');
 			}else{
 				$password_hash = password_hash($newpassword, PASSWORD_DEFAULT);
@@ -74,7 +78,8 @@ class Profile extends CI_Controller {
 				'password_pelanggan'			=> $password_hash,
 				 );
 				$this->db->update('tbl_pelanggan', $update,$where);
-				$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');
+				$this->session->set_flashdata('message', 'swal("Succeeded", "Edited Data
+				", "success");');
 				redirect('profile/profilesaya/'.$id);
 			}
 		}

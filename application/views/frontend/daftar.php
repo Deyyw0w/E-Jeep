@@ -14,7 +14,8 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Daftar</title>
+		<!-- Log on to codeastro.com for more projects -->
+		<title>Register</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/frontend/datepicker/dcalendar.picker.css">
@@ -27,18 +28,18 @@
 			<div class="overlay overlay-bg"></div>
 			<div class="container">
 				<div class="row d-flex justify-content-center">
-					<div class="col-lg-6">
+					<div class="col-lg-8">
 						<!-- Default Card Example -->
 						<div class="card ">
 							<div class="card-header">
-								<i class="fa fa-address-card-o"></i> Daftar
+								<i class="fas fa-user"></i> Customer Registration
 							</div>
 							<div class="card-body">
 								<form action="<?php echo base_url() ?>login/daftar" method="post">
 									<div class="form-group">
 										<div class="form-group">
 											<div class="form-label-group">
-												<input type="text" name="name" class="form-control" required="" placeholder="Nama Kamu" value="<?php echo set_value('name') ?>">
+												<input type="text" name="name" class="form-control" required="" placeholder="Full Name" value="<?php echo set_value('name') ?>">
 												<?php echo form_error('name'),'<small class="text-danger pl-3">','</small>'; ?>
 											</div>
 										</div>
@@ -53,17 +54,17 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-label-group">
-													<input type="number" id="nomor" name="nomor" class="form-control" required="" placeholder="Nomor Handphone" value="<?php echo set_value('nomor') ?>">
+													<input type="number" id="nomor" name="nomor" class="form-control" required="" placeholder="Contact Number" value="<?php echo set_value('nomor') ?>">
 													<?php echo form_error('nomor'),'<small class="text-danger pl-3">','</small>'; ?>
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="username">Alamat</label>
+										<label for="username">Address</label>
 										<div class="form-label-group">
 											<textarea class="form-control" name="alamat"><?php echo set_value('alamat') ?></textarea>
-											<?php echo form_error('alamat'),'<small class="text-danger pl-3">','</small>'; ?>
+											<?php echo form_error('alamat'),'<p class="text-danger pl-3">','</p>'; ?>
 										</div>
 									</div>
 									<div class="form-group">
@@ -81,16 +82,18 @@
 										</div>
 									</div>
 									<?php echo form_error('password1'),'<small class="text-danger pl-3">','</small>'; ?>
-									<button class="btn btn-primary btn-block">Daftar</button>
+									<button class="btn btn-info btn-block">Register</button>
 								</form>
+								<hr>
 								<div class="text-center">
-									<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login">Login Page</a></p>
+									<p>Already Registered? <a class="" href="<?php echo base_url() ?>login">Login Now</a></p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
 				<!-- End banner Area -->
+				<!-- Log on to codeastro.com for more projects -->
 				<!-- start footer Area -->
 				<?php $this->load->view('frontend/include/base_footer'); ?>
 				<!-- js -->

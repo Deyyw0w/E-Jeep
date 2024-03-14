@@ -31,7 +31,7 @@ class Order extends CI_Controller {
 			// die(print_r($sqlcek));
 			$this->load->view('backend/view_order',$data);
 	 	}else{
-	 		$this->session->set_flashdata('message', 'swal("Kosong", "Order Tidak Ada", "error");');
+	 		$this->session->set_flashdata('message', 'swal("Empty", "There is no order", "error");');
     		redirect('backend/tiket');
 	 	}
 	}
@@ -72,7 +72,7 @@ class Order extends CI_Controller {
 			);
 		$this->db->insert('tbl_tiket', $simpan);
 		}
-		$this->session->set_flashdata('message', 'swal("Berhasil", "Tiket Order Berhasil Di Proses", "success");');
+		$this->session->set_flashdata('message', 'swal("Succeeded", "Ticket Order Succeeded In Process", "success");');
 		redirect('backend/order');
 
 		
@@ -102,16 +102,16 @@ class Order extends CI_Controller {
 		);
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('XTRANS');
+        $this->email->from('E-JEEP');
         $this->email->to($to);
         $this->email->attach($attach);
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {
-        	$this->session->set_flashdata('message', 'swal("Berhasil", "E Tiket terkirim", "success");');
+        	$this->session->set_flashdata('message', 'swal("Succeeded", "E Ticket sent", "success");');
 			redirect('backend/order/vieworder/'.$id);
         } else {
-            $this->session->set_flashdata('message', 'swal("Gagal", "E Tiket Gagal Di kirim Hubungi Team IT", "error");');
+            $this->session->set_flashdata('message', 'swal("Fail", "E Ticket Failed to Send Contact IT Team", "error");');
 			redirect('backend/order/vieworder/'.$id);
         }
 

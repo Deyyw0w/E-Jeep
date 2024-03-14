@@ -169,20 +169,20 @@ class Login extends CI_Controller {
 					$this->db->update('tbl_pelanggan', $update,$where);
 					$this->db->delete('tbl_token_pelanggan',['email_token' => $email]);
 					$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
-					Succeeded Verifikasi Login Kembali Akun Anda
+					Succeeded Login Verification Back Your Account
 					</div>');
 					redirect('login');
 				}else{
 					$this->db->delete('tbl_pelanggan',['email_pelanggan' => $email]);
 					$this->db->delete('tbl_token_pelanggan',['email_token' => $email]);
 					$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						 Token Expaird Harap kembali daftar akun anda
-						</div>');
+					Token Expired Please register your account again
+					</div>');
 	    			redirect('login');
 				}
 			}else{
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-						  Wrong Token Verification Failed
+				Wrong Token Verification Failed
  
 						</div>');
 	    		redirect('login');

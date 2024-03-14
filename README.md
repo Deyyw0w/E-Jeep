@@ -5,16 +5,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
-##Overview
-#E-JEEP Ticket Reservation is a simple web-based bus ticket reservation application built using CodeIgniter 3.1.10.
 
-Features
-User Registration with email verification
-Ticket Booking
-Seat Selection
-User's Ticket List in both frontend and backend
-Email Alerts for Payment and E-ticket
-CRUD Operations for Bus Schedule, Destinations, Banks, etc.
-Ticket Reservation Reports
-For the backend, there are two user levels: admin and owner.
+## Overview
 
+E-JEEP Ticket Reservation is a simple web-based bus ticket reservation application built using CodeIgniter 3.1.10.
+
+## Features
+
+- User Registration with email verification
+- Ticket Booking
+- Seat Selection
+- User's Ticket List in both frontend and backend
+- Email Alerts for Payment and E-ticket
+- CRUD Operations for Bus Schedule, Destinations, Banks, etc.
+- Ticket Reservation Reports
+
+## WASSUP

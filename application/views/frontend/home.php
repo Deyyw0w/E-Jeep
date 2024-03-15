@@ -61,7 +61,8 @@
 							HATID MOKO		
 							</h2>
 						<p class="text-white" >
-						Now Booking E-Jeep tickets is easier, you can book online at Hatid Moko. No need to bother going to the terminal or agent office, now you can but tickets easily. FAST and EASY Booking. Free to Choose Seats.
+						Now Booking E-Jeep tickets is easier, you can book online at Hatid Moko. No need to bother going to the terminal or agent office, now you can buy tickets easily. FAST and EASY Booking. Free to Choose Seats. 	
+						</p>
 						<a href="<?php echo base_url() ?>tiket" class="btn btn-danger text-uppercase">Search Tickets</a>
 					</div>
 				</div>

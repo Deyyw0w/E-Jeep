@@ -90,9 +90,9 @@
 					<div class="col-lg-4 col-md-6">
 						<div class="single-service">
 							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b2.png" width="150" height="150" alt="">
-							<h4>Choose your bus and seat</h4>
+							<h4>Choose your E-jeep and seat</h4>
 							<p>
-							Select bus, seat, place of departure, destination, fill in passenger details and click 'Payment'
+							Select E-Jeep Seat, place of departure,destination, fill in passenger details and click 'Payment'
 							</p>
 						</div>
 					</div>

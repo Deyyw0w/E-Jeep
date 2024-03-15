@@ -61,7 +61,7 @@
 							HATID MOKO		
 							</h2>
 						<p class="text-white" >
-							Now finding bus tickets is easier, you can order online at BTBS. No need to bother going to the terminal or agent office, now you can buy tickets easily. Fast and Easy Booking. Free to Choose Seats. Cheapest Every Day. 24/7 Customer Service. All Classes and Routes.						</p>
+						Now Booking E-Jeep tickets is easier, you can book online at Hatid Moko. No need to bother going to the terminal or agent office, now you can but tickets easily. FAST and EASY Booking. Free to Choose Seats.
 						<a href="<?php echo base_url() ?>tiket" class="btn btn-danger text-uppercase">Search Tickets</a>
 					</div>
 				</div>

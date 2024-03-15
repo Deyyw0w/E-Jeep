@@ -73,7 +73,7 @@
 			<div class="container">
 				<div class="row d-flex justify-content-center">
 					<div class="col-md-8 pb-40 header-text">
-						<h1>STEPS TO BOOK A BUS TICKET</h1>
+						<h1>STEPS TO BOOK E-JEEP TICKET</h1>
 					</div>
 				</div>
 				<div class="row">
@@ -102,7 +102,7 @@
 							<img class="img-fluid" src="<?php echo base_url() ?>assets/frontend/img/b3.png" width="150" height="150" alt="">
 							<h4>Easy Payment Method</h4>
 							<p>
-							Payment can be made via ATM transfer, Internet banking.
+							Payment can be made via Gcash, Maya, Internet banking.
 							</p>
 						</div>
 					</div>

@@ -58,7 +58,7 @@
 					<div class="banner-content col-lg-7 col-md-12">
 						<!-- <h4  class="combined">Official Ticket Guarantee</h4> -->
 							<h2 class="text-white" >
-							HATID MOKO System		
+							HATID MOKO		
 							</h2>
 						<p class="text-white" >
 							Now finding bus tickets is easier, you can order online at BTBS. No need to bother going to the terminal or agent office, now you can buy tickets easily. Fast and Easy Booking. Free to Choose Seats. Cheapest Every Day. 24/7 Customer Service. All Classes and Routes.						</p>

@@ -15,7 +15,7 @@
 		<meta charset="UTF-8">
 		<!-- Log on to codeastro.com for more projects -->
 		<!-- Site Title -->
-		<title>BUS TICKET BOOKING</title>
+		<title>HATID MOKO</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--
 		CSS

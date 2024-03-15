@@ -2865,7 +2865,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .generic-banner {
 	margin-top: 60px;
-	background-color: #8490ff;
+	background: linear-gradient(to right, #5284e2, #e4e9a5); /* Gradient from light blue to light yellow */
 	text-align: center
 }
 

@@ -49,7 +49,7 @@
                   <td><?= date('H:i',strtotime($row['jam_berangkat_jadwal'])); ?></td>
                   <td><?= date('H:i',strtotime($row['jam_tiba_jadwal'])); ?></td>
                   <!-- <td>$<?= number_format((float)($row['harga_jadwal']),0,",","."); ?>,-</td> -->
-                  <td>$<?= number_format((float)($row['harga_jadwal']),0,",","."); ?></td>
+                  <td>₱<?= number_format((float)($row['harga_jadwal']),0,",","."); ?></td>
                   <td><a href="<?= base_url('backend/jadwal/viewjadwal/'.$row['kd_jadwal']) ?>" class="btn btn-info">View</a></td>
                 </td>
               </tr>

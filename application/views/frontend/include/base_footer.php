@@ -3,9 +3,9 @@
 					<div class="row">
 						<div class="col-lg-3  col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h4 class="text-white">Bus Ticket Booking</h4>
+								<h4 class="text-white">HATID MOKO</h4>
 								<p>
-								BUS Tickets is the largest online bus ticket booking service in the world. Trusted by more than 8 million customers globally. Bus Tickets offers booking bus tickets through the website.
+										E-Jeep is the latest and most advance mode of transportaion in the Philippines! With the Hatid Moko booking web application, well make your booking experience much easier and more convenient.
 								</p>
 							</div>
 						</div>
@@ -15,10 +15,20 @@
 								<p>
 
 								</p>
-								<p class="number">
-									012-0101-111-1001 <br>
-									012-1010-000-0110
-								</p>
+								<style>
+								.detail-number {
+									background: linear-gradient(to right, #6fa1ff, #f5f9b7); /* Gradient from light blue to light yellow */
+									-webkit-background-clip: text;
+									-webkit-text-fill-color: transparent; /* Apply gradient to text */
+									display: inline; /* Ensures gradient applies only to text, not entire element */
+							}
+							</style>
+
+							<p class="detail-number">
+								hatidmokoofficial@gmail.com <br>
+	
+							</p>
+
 							</div>
 						</div>						
 						<div class="col-lg-5  col-md-6 col-sm-6">
@@ -45,7 +55,7 @@
 					</div>
 					<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            <p class="footer-text m-0"><span>&copy; <?= date('Y') ?> EJEEP System : Developed by KAMI KAZI </span> </p>
+            <p class="footer-text m-0"><span>&copy; <?= date('Y') ?> HATID MOKO : DEVELOPED BY BSIT3A </span> </p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 			<!-- Log on to codeastro.com for more projects -->
 						<!-- <div class="footer-social d-flex align-items-center">

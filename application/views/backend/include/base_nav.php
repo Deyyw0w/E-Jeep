@@ -6,10 +6,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('backend/home') ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-bus"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">MANTIK</div>
+        <img src="../assets/frontend/img/logo1.png" width=60 alt="" srcset="">
+        <div class="sidebar-brand-text mx-3">HATID MOKO</div>
       </a>
 
       <!-- Divider -->

@@ -97,7 +97,7 @@
 									<h4><b> <p>a Total Sum of</p></b></h4>
 								</div>
 								<div class="col-12 bigger-title text-orange">
-									<h3 ><p>$<?= number_format($total,0,',','.') ;?></p></h3>
+									<h3 ><p>₱<?= number_format($total,0,',','.') ;?></p></h3>
 								</div>
 								<div class="col-14 mt-15 mb-15">
 									<hr>

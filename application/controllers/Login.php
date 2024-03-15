@@ -71,8 +71,11 @@ class Login extends CI_Controller {
 			'is_unique' => 'Phone number has already been used.'
 		));
 		
-		$this->form_validation->set_rules('name', 'Name', 'trim|required', array(
-			'required' => 'Name must be filled.'
+		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required', array(
+			'required' => 'First name must be filled.'
+		));
+		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required', array(
+			'required' => 'Last name must be filled.'
 		));
 		
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
@@ -99,9 +102,20 @@ class Login extends CI_Controller {
 		} else {
 			// die(print_r($_POST));
 			$this->load->model('getkod_model');
+
+			$firstName = $this->input->post('first_name');
+			$middleName = $this->input->post('middle_name');
+			$lastName = $this->input->post('last_name');
+			$fullName="";
+			if (!empty($middleName)) {
+				$fullName = $firstName . ' ' . $middleName . ' ' . $lastName;
+			} else {
+				$fullName = $firstName . ' ' . $lastName;
+			}			
+
 			$data = array(
 			'kd_pelanggan'	=> $this->getkod_model->get_kodpel(),
-			'nama_pelanggan'  => $this->input->post('name'),
+			'nama_pelanggan'  => $fullName,
 			'email_pelanggan'	    	=> $this->input->post('email'),
 			'img_pelanggan'		=> 'assets/frontend/img/default.png',
 			'alamat_pelanggan'		=> $this->input->post('alamat'),
@@ -139,14 +153,14 @@ class Login extends CI_Controller {
            ];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('E-JEEP');
+        $this->email->from('HATID MOKO');
         $this->email->to($this->input->post('email'));
         // $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
 		if ($type == 'verify') {
-			$this->email->subject('Account Verification E-JEEP Reservation');
+			$this->email->subject('Account Verification HATID MOKO Reservation');
 			$this->email->message('Click the link below to verify your account: <a href="' . base_url('login/verify?email=' . $this->input->post('email') . '&token=' . $token) . '">Verify</a>');
 		} elseif ($type == 'forgot') {
-			$this->email->subject('Reset Account E-JEEP Reservation');
+			$this->email->subject('Reset Account HATID MOKO Reservation');
 			$this->email->message('Click the link below to reset your account: <a href="' . base_url('login/forgot?email=' . $this->input->post('email') . '&token=' . $token) . '">Reset Password</a>');
 		}
 		if ($this->email->send()) {

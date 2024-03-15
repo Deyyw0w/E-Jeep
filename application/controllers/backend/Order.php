@@ -102,7 +102,7 @@ class Order extends CI_Controller {
 		);
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('E-JEEP');
+        $this->email->from('HATID MOKO');
         $this->email->to($to);
         $this->email->attach($attach);
         $this->email->subject($subject);

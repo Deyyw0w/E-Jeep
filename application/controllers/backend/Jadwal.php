@@ -40,7 +40,7 @@ class Jadwal extends CI_Controller {
 			$tujuan = $this->db->query("SELECT * FROM tbl_tujuan
                WHERE kd_tujuan ='".$this->input->post('tujuan')."'")->row_array();
 			if ($asal == $tujuan['kd_tujuan']) {
-				$this->session->set_flashdata('message', 'swal("Succeeded", "The purpose of E-Jeep cannot be the same
+				$this->session->set_flashdata('message', 'swal("Succeeded", "The purpose of HATID MOKO cannot be the same
 				", "error");');
 			redirect('backend/jadwal');
 			}else{

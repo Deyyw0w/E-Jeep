@@ -163,7 +163,7 @@ class Tiket extends CI_Controller {
 		$send['sendmail'] = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='$value'")->row_array();
 		$send['count'] = count($send['sendmail']);
 		//email
-		$subject = 'E-JEEP';
+		$subject = 'HATID MOKO';
 		$message = $this->load->view('frontend/sendmail',$send, TRUE);
 		$to 	 = $this->session->userdata('email');
         $config = [
@@ -179,7 +179,7 @@ class Tiket extends CI_Controller {
 		];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
-        $this->email->from('E-JEEP');
+        $this->email->from('HATID MOKO');
         $this->email->to($to);
         $this->email->subject($subject);
         $this->email->message($message);

@@ -30,7 +30,7 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-12">
-							<form class="user" method="post" action="<?= base_url('backend/login/daftar') ?>">
+							<form class="user" method="post" action="<?= base_url() .'backend/login/daftar'  ?>">
 								<div class="form-group">
 									<input type="text" class="form-control form-control-user" id="exampleFirstName" name="name"
 										value="<?= set_value('name') ?>" placeholder="Full Name">

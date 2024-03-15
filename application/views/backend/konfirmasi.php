@@ -45,7 +45,7 @@
                     <td><?= $row['nama_konfirmasi']; ?></td>
                     <td><?= $row['nama_bank_konfirmasi']; ?></td>
                     <td><?= $row['norek_konfirmasi']; ?></td>
-                    <td>$<?= $row['total_konfirmasi']; ?></td>
+                    <td>₱<?= $row['total_konfirmasi']; ?></td>
                     <td><a href="<?= base_url('backend/konfirmasi/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-info">View</a></td>
                   </tr>
                 <?php } ?>

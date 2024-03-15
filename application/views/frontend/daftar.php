@@ -36,14 +36,32 @@
 							</div>
 							<div class="card-body">
 								<form action="<?php echo base_url() ?>login/daftar" method="post">
+								<div class="form-group">
 									<div class="form-group">
-										<div class="form-group">
-											<div class="form-label-group">
-												<input type="text" name="name" class="form-control" required="" placeholder="Full Name" value="<?php echo set_value('name') ?>">
-												<?php echo form_error('name'),'<small class="text-danger pl-3">','</small>'; ?>
-											</div>
+										<div class="form-label-group">
+											<input type="text" name="first_name" class="form-control" required="" placeholder="First Name" value="<?php echo set_value('first_name') ?>">
+											<?php echo form_error('first_name'),'<small class="text-danger pl-3">','</small>'; ?>
 										</div>
 									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="form-group">
+										<div class="form-label-group">
+											<input type="text" name="middle_name" class="form-control" placeholder="Middle Name" value="<?php echo set_value('middle_name') ?>">
+											<?php echo form_error('middle_name'),'<small class="text-danger pl-3">','</small>'; ?>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="form-group">
+										<div class="form-label-group">
+											<input type="text" name="last_name" class="form-control" required="" placeholder="Last Name" value="<?php echo set_value('last_name') ?>">
+											<?php echo form_error('last_name'),'<small class="text-danger pl-3">','</small>'; ?>
+										</div>
+									</div>
+								</div>
 									<div class="form-group">
 										<div class="form-row">
 											<div class="col-md-6">
@@ -54,7 +72,7 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-label-group">
-													<input type="number" id="nomor" name="nomor" class="form-control" required="" placeholder="Contact Number" value="<?php echo set_value('nomor') ?>">
+													<input type="text" id="nomor" name="nomor" class="form-control" required="" placeholder="Contact Number" value="<?php echo set_value('nomor') ?>">
 													<?php echo form_error('nomor'),'<small class="text-danger pl-3">','</small>'; ?>
 												</div>
 											</div>
@@ -92,6 +110,11 @@
 						</div>
 					</div>
 				</section>
+				<script>
+					var firstName = document.getElementById("first_name").val();
+					var middleName = document.getElementById("middle_name").val();
+					var lastName = document.getElementById("last_name").val();
+alert(firstName)				</script>
 				<!-- End banner Area -->
 				<!-- Log on to codeastro.com for more projects -->
 				<!-- start footer Area -->

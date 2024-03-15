@@ -2,7 +2,7 @@
 		    <div class="container">
 		    	<div class="row align-items-center justify-content-between d-flex">
 			      <div id="logo">
-			        <a href="<?php echo base_url() ?>"><h3> <i class="fas fa-ticket-alt"></i> <b><img src="assets/frontend/img/logo1.png" width=60 alt="" srcset=""> HATID MOKO</b></h3></a>
+			        <a href="<?php echo base_url() ?>"><h3> <i class="fas fa-ticket-alt"></i> <b><img src="<?=base_url()?>assets/frontend/img/logo1.png" class="logo" width=60 alt="" srcset=""> HATID MOKO</b></h3></a>
 			      </div>
 			      <nav id="nav-menu-container">
 			        <ul class="nav-menu">

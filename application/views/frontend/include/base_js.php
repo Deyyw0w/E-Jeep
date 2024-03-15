@@ -22,7 +22,7 @@
 <script src="<?php echo base_url() ?>assets/datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <?php echo "<script>".$this->session->flashdata('message')."</script>"?>
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	var Tawk_API = Tawk_API || {},
 		Tawk_LoadStart = new Date();
 	(function () {
@@ -35,7 +35,7 @@
 		s0.parentNode.insertBefore(s1, s0);
 	})();
 
-</script>
+</script> -->
 <script type="text/javascript">
 	$(document).ready(function () {
 		$(".preloader").fadeOut();

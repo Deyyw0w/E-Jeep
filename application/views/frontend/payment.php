@@ -54,10 +54,10 @@
 												<td><?= $row['kd_jadwal']." [".$row['kd_bus'].']' ?></td>
 												<td><?= $now?></td>
 												<td><?= $row['no_kursi_order']; ?></td>
-												<td>$<?= $row['harga_jadwal']; ?></td>
+												<td>₱<?= $row['harga_jadwal']; ?></td>
 											</tr>
 											<?php } ?>
-											<td colspan="5"> <b class="pull-right">Total $<?php $total = $count * $tiket[0]['harga_jadwal'] ; echo $total ?></b></td>
+											<td colspan="5"> <b class="pull-right">Total ₱<?php $total = $count * $tiket[0]['harga_jadwal'] ; echo $total ?></b></td>
 										</tbody>
 									</table>
 								</div>

@@ -109,7 +109,7 @@
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Total payment</label>
                     <div class="col-sm-8">
-                      <p><b>$<?php $total =  count($tiket) * $tiket[0]['harga_jadwal']; echo number_format($total)?></b></p>
+                      <p><b>₱<?php $total =  count($tiket) * $tiket[0]['harga_jadwal']; echo number_format($total)?></b></p>
                       </select>
                     </div>
                   </div>

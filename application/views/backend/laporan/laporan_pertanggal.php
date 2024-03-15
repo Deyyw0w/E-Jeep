@@ -51,7 +51,7 @@
         <td style="text-align:center;"><?php echo $row['nama_tiket'];?></td>
         <td style="text-align:center;"><?php echo $row['umur_tiket'];?></td>
         <td style="text-align:center;"><?php echo $row['kursi_tiket'];?></td>
-        <td style="text-align:left;"><?php echo '$'.number_format($row['harga_tiket']);?></td>
+        <td style="text-align:left;"><?php echo '₱'.number_format($row['harga_tiket']);?></td>
     </tr>
     <?php } ?>
 </tbody>
@@ -59,7 +59,7 @@
 
     <tr>
         <td colspan="5" style="text-align:right;"><b>Total: </b></td>
-        <td style="text-align:left;"><b><?php echo '$'.number_format($total);?></b></td>
+        <td style="text-align:left;"><b><?php echo '₱'.number_format($total);?></b></td>
     </tr>
 </tfoot>
 </table>
@@ -69,7 +69,7 @@
 </table>
 <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
-        <td align="right">Jakarta, <?php echo date('d-M-Y')?></td>
+        <td align="right">Philippines, <?php echo date('d-M-Y')?></td>
     </tr>
     <tr>
         <td align="right"></td>
